@@ -1,0 +1,2491 @@
+openapi: "3.0.2"
+info:
+  title: SEAL Service Microservice Specification
+  version: 0.0.1
+  description: "This document contains the formal specification of all standard module interfaces in SEAL Service.
+  
+  **Take into account that parameters marked as cookie type, will instead be passed through the session object**
+  "
+  
+
+
+servers:
+    - url: https://domain/basepath
+        description: Production server
+    - url: https://domain/basepath
+        description: Pre-production server
+    - url: https://domain/basepath
+        description: Development server
+  
+
+
+tags:
+    - name: "ConfigManager"
+      description: ""
+    - name: "SessionManager"
+      description: ""
+    - name: "APIGatewayClient"
+      description: ""
+    - name: "APIGatewaySP"
+      description: ""
+    - name: "RequestManager"
+      description: ""
+    - name: "SPService"
+      description: ""
+    - name: "AuthenticationSource"
+      description: ""
+    - name: "IdentitySource"
+      description: ""
+    - name: "Persistence"
+      description: ""
+    - name: "IDBootstrapping"
+      description: ""
+    - name: "IDLinking"
+      description: ""
+    - name: "APIGatewayLink"
+      description: ""
+    - name: "VerifiableClaimIssuing"
+      description: ""
+    - name: "Revocation"
+      description: ""
+      
+      
+      
+
+
+paths:
+
+####### SessionManager ########
+
+  /sm/startSession:
+    post:
+      tags:
+        - SessionManager
+      summary: 'Sets up an internal session temporary storage and returns its identifierby setting the code to NEW and the identifier at sessionData.sessionId '
+      operationId: startSessionUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+
+  /sm/endSession:
+    delete:
+      tags:
+        - SessionManager
+      summary: Terminates a session and deletes all the stored data by setting the code to OK
+      operationId: endSessionUsingDELETE
+      produces:
+        - application/json
+      parameters:
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+
+
+  /sm/getSession:
+    get:
+      tags:
+        - SessionManager
+      summary: 'Returns the internal session identifier by querying using the UUID of an exteranal the session request. E.g. eIDAS request identifier, The identifier must be previously stored in the sessionResponds; code:OK, sessionData.sessionId: the internal sessionId that matches the request params'
+      operationId: getSessionFromIdPUUUIDUsingGET
+      produces:
+        - application/json
+      parameters:
+        - name: varName
+          in: query
+          description: varName
+          required: false
+          type: string
+        - name: varValue
+          in: query
+          description: varValue
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+
+  /sm/getSessionData:
+    get:
+      tags:
+        - SessionManager
+      summary: 'A variable Or the whole session object  is retrieved. Responds by code:OK, sessionData:{sessionId: the session, sessioVarialbes: map of variables,values}'
+      operationId: getSessionDataUsingGET
+      produces:
+        - application/json
+      parameters:
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+        - name: variableName
+          in: query
+          description: variableName
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+
+  /sm/updateSessionData:
+    post:
+      tags:
+        - SessionManager
+      summary: 'Passed data is stored in a session variable overwriting the previous value. If no session variable is given, then the whole data stored in this session will be replaced with the passed dataObject, in that case the dataObject must be a dictionarycontaining paris of key, values e.g. {key1:value1, key2:value2} with keys and values strings (the latter may be json) Responds by setting code = OK " '
+      operationId: updateSessionDataUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: updateRequest
+          description: updateRequest
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateDataRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+
+  /sm/generateToken:
+    get:
+      tags:
+        - SessionManager
+      summary: 'Generates a signed token, only the sessionId as the payload, additionaly parameters include: The id of the requesting microservice (msA) and The id of the destination microservice (msB), may also include additional data Responds by code: New, additionalData: the jwt token'
+      operationId: generateTokenUsingGET
+      produces:
+        - application/json
+      parameters:
+        - name: data
+          in: query
+          description: data
+          required: false
+          type: string
+        - name: receiver
+          in: query
+          description: receiver
+          required: true
+          type: string
+        - name: sender
+          in: query
+          description: sender
+          required: true
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+
+  /sm/validateToken:
+    get:
+      tags:
+        - SessionManager
+      summary: 'The passed security token’s signature will be validated, as well as the validity as well as other validation measuresResponds by code: OK, sessionData.sessionId the sessionId used to gen. the jwt, and additionalData: extraData that were used to generate the jwt'
+      operationId: validateTokenUsingGET
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: query
+          description: token
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+      
+      
+      
+####### ConfigManager ########
+
+
+
+  /metadata/microservices:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the configuration metadata for all microservices.
+      description: Get ...
+      operationId: allMicroservicesGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/msMetadataList" 
+  
+  
+  /metadata/microservices/{apiClass}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the configuration metadata for all microservices of the specified api class.
+      description: Get ...
+      operationId: classMicroservicesGet
+      produces:
+      - "application/json"
+      
+      parameters:
+      - name: "apiClass"  
+        in: "path"
+        required: true
+        type: string
+        schema:
+          $ref: '#/definitions/apiClassEnum'
+      
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/msMetadataList"
+        404:
+          description: "Bad microservice type or none found"
+      
+
+  /metadata/externalEntities:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of available entity collections
+      description: "Collections like: IDP, SP, AP, GW"
+      operationId: entityCollectionsGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: array
+            items:
+              type: string
+        404:
+          description: "External entities not found"
+
+  
+  /metadata/externalEntities/{collectionId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of entityMetadata objects for all the external entities belonging to a determined kind, set or collection.
+      description: Get ...
+      operationId: classEntitiesGet
+      produces:
+        - "application/json"
+      parameters:
+        - name: "collectionId"  
+          in: "path"
+          required: true
+          type: string  #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/entityMetadataList"
+        404:
+          description: "Collection not found"
+  
+  
+  
+  /metadata/externalEntities/{collectionId}/{entityId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the entityMetadata for the indicated external entity belonging to a determined set or kind.
+      description: Get ...
+      operationId: entityGet
+      produces:
+      - "application/json"
+      parameters:
+        - name: "collectionId"  
+          in: "path"
+          required: true
+          type: string  #Unbound values, to avoid limiting the number of sets by default
+        - name: "entityId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/entityMetadata"
+        404:
+          description: "Collection not found"
+
+
+  /metadata/internal:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of available internal configurations
+      description: "The metadata collections delivered through this interface should be only for internal use, so only the registered mu¡icroservices should be allowed to query them"
+      operationId: internalConfsGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: array
+            items:
+              type: string
+        404:
+          description: "Internal configurations not found"
+
+  
+  /metadata/internal/{confId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the configuration data for a given internal entity (the local GW, at the moment).
+      description: Get ...
+      operationId: configurationGet
+      produces:
+        - "application/json"
+      parameters:
+        - name: "confId"  
+          in: "path"
+          required: true
+          type: string  #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/entityMetadata" # TODO: private key to be included
+        404:
+          description: "Internal configuration not found"
+          
+          
+          
+  /metadata/attributes/:
+    get:
+      tags:
+        - ConfigManager
+      summary: "Get the list of available attribute profiles: eIDAS, eduPerson, etc."
+      description: Get ...
+      operationId: attributeProfilesGet
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: array
+            items:
+              type: string
+        404:
+          description: "Attribute Profiles not found"
+
+   
+  /metadata/attributes/{attrProfileId}:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the attribute set for the profile just specified.
+      description: Get ...
+      operationId: attributeSetGet
+      produces:
+      - "application/json"
+      parameters:
+        - name: "attrProfileId"  
+          in: "path"
+          required: true
+          type: string #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/attributeTypeList" 
+        404:
+          description: "Attribute Profile not found"
+
+
+  /metadata/attributes/{attrProfileId}/maps:
+    get:
+      tags:
+        - ConfigManager
+      summary: Get the list of mappings of attributes with other sets, for the profile just specified.
+      description: Get ...
+      operationId: attributeSetGet
+      produces:
+      - "application/json"
+      parameters:
+        - name: "attrProfileId"  
+          in: "path"
+          required: true
+          type: string #Unbound values, to avoid limiting the number of sets by default
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/attributeMapList"  # TODO: define attributeMap and attributeMapList
+        404:
+          description: "Attribute Profile not found"
+
+
+
+
+####### APIGatewayClient #######
+
+  /cl/list/{collection}:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Get a collection of elements to be displayed on the selector widget.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "collection"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming list"
+          type: array
+          items:
+            type: object #Generic object, collections will be from a
+                      #base common "displayable" class, but I think this does not
+                      #support inheritance
+        404:
+          description: "Collection not found"
+          
+          
+  /cl/session/start:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Start a session on the server, receive the session token for later reference.
+      description: _
+      produces:
+        - "text/plain"
+      parameters:
+        - name: "sessionID" #To retake a session in case it already exists
+          in: "query"
+          required: false
+          type: string
+      responses:
+        200:
+          description: "Session started"
+          type: string
+        404:
+          description: "Session start error"
+
+          
+  /cl/session/end:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: End a session on the server, receive the session token for later reference.
+      description: _
+      parameters:
+        - name: "sessionID"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Session ended"
+        404:
+          description: "Session end error"
+
+          
+  /cl/auth/{moduleID}/login:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Login through a specifc auth method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger" #TODO define object. Will include :
+                                #response payload data
+                                # response status
+                                #the access mechanism (HTTP-POST-REDIRECT,
+                                # HTTP-GET-REDIRECT, HTTP-GET,
+                                # HTTP-POST,  HTTP-GET-SIG, HTTP-POST-SIG)
+                                #the url to access
+                                #body type
+                                #body content
+        404:
+          description: "Error accessing module"
+          
+
+  /cl/auth/{moduleID}/logout:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Logout through a specifc auth method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/persistence/{moduleID}/load:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Load store with a specific persistence method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/persistence/{moduleID}/store:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Save user data on a store with a specific auth method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/source/{moduleID}/retrieve:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Fetch user identity data on the session store with a specific identity method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/derivation/{moduleID}/generate:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Generate a derived identity through a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/mgr/{datasetID}/refresh:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Update a retrieved or derived identity already on the
+    session store through the specific method module used to obtain it.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "datasetID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/mgr/{datasetID}/delete:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Delete a retrieved or derived identity already on the
+    session store through the specific method module used to obtain it.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "datasetID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/mgr/{datasetID}/revoke:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Revoke a retrieved or derived identity already on the
+    session store through the specific method module used to obtain it.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "datasetID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/linking/{moduleID}/request:
+    post:
+      tags:
+        - APIGatewayClient
+      summary: Request two data sets to be reconciled through a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "datasetIDa"  
+          in: "formData"
+          required: true
+          type: string
+        - name: "datasetIDb"  
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/linking/{moduleID}/{requestId}/status:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Request the status of a reconciliation request to a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/linking/{moduleID}/{requestId}/cancel:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Request to cancel a reconciliation request on a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/linking/{moduleID}/{requestId}/result:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Fetch the result of a reconciliation request to a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/linking/{moduleID}/{requestId}/files/upload:
+    post:
+      tags:
+        - APIGatewayClient
+      summary: Upload a supporting file to a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      consumes:
+        - "multipart/form-data"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+        - name: "file"  
+          in: "formData"
+          required: true
+          type: file
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/linking/{moduleID}/{requestId}/messages/send:
+    post:
+      tags:
+        - APIGatewayClient
+      summary: Send a message to a validation officer on a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+        - name: "message"  
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/ident/linking/{moduleID}/{requestId}/messages/receive:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Receive messages from a validation officer on a
+    specific method module (on the response payload as a
+    messageListObject).  #TODO implement this object
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /cl/vc/issuing/{moduleID}/generate:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Generate a verifiable claim through a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  
+
+####### APIGatewaySP #######
+
+
+  /sp/list/{collection}:
+    get:
+      tags:
+        - APIGatewaySP
+      summary: Get a collection of elements to be displayed on the selector widget.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "collection"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming list"
+          type: array
+            items:
+             type: object
+        404:
+          description: "Collection not found"
+          
+          
+  /sp/session/start:
+    get:
+      tags:
+        - APIGatewaySP
+      summary: Start a session on the server, receive the session token for later reference.
+      description: _
+      produces:
+        - "text/plain"
+      parameters:
+        - name: "sessionID" #To retake a session in case it already exists
+          in: "query"
+          required: false
+          type: string
+      responses:
+        200:
+          description: "Session started"
+          type: string
+        404:
+          description: "Session start error"
+
+          
+  /sp/session/end:
+    get:
+      tags:
+        - APIGatewaySP
+      summary: End a session on the server, receive the session token for later reference.
+      description: _
+      parameters:
+        - name: "sessionID"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Session ended"
+        404:
+          description: "Session end error"
+          
+
+  /sp/auth/{moduleID}/login:
+    get:
+      tags:
+        - APIGatewaySP
+      summary: Login through a specifc auth method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+          
+
+  /sp/persistence/{moduleID}/load:
+    get:
+      tags:
+        - APIGatewaySP
+      summary: Load store with a specific persistence method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  /sp/ident/mgr/return:
+    get:
+      tags:
+        - APIGatewaySP
+      summary: Retrieve the response token for the SP, to redirect
+    back to the SP specific module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+          
+  
+####### RequestManager ####### 
+
+  /rm/request:
+    post:
+      tags:
+        - RequestManager
+      summary: Pass a standard request object to be handled.
+      description: Process an Authn or Data request
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "spRequest"
+          in: "cookie"
+          description: The standard request object representing the request the remote SP made
+          required: true
+          schema:
+            $ref: "#/definitions/attributeSet"
+        - name: "spMetadata"  
+          in: "cookie"
+          description: The metadata object of the remote SP that issued the request to the gateway
+          required: true
+          schema:
+            $ref: "#/definitions/entityMetadata"
+        - name: "apEntityId"
+          in: "cookie"
+          description: The id of the remote AP to query (this way, the acm will skip discovery UI)
+          required: false
+          type: string
+        - name: "authenticationSet"
+          in: "cookie"
+          description: A standard response object containing a some of the attributes and values retrieved from the IDP bu the originating GW, so they can be passed to the AP for authentication (in this case, the destination GW trusts the authentication at the originating GW).
+          required: false
+          schema:
+            $ref: "#/definitions/attributeSet"
+      responses:
+        200:
+          description: "Request admitted"
+        400:
+          description: "Bad request"
+        401:
+          description: "Request not authorised"  
+  
+  
+  /rm/response:
+    post:
+      tags:
+        - RequestManager
+      summary: Callback. Pass a standard response object to be handled.
+      description: Process an Authn or Data response
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "dsResponse"  
+          in: "header"
+          description: The standard response object representing the response from the remote IdP or the data selected from the user store
+          required: true
+          schema:
+            $ref: "#/definitions/attributeSet"
+        - name: "dsMetadata"
+          in: "header"
+          description: The metadata object of the remote IdP that issued the response to the gateway, or the local SEAL metadata when data is collected from the user store
+          required: true
+          schema:
+            $ref: "#/definitions/entityMetadata"
+      responses:
+        200:
+          description: "Response admitted"
+        400:
+          description: "Bad response"
+        401:
+          description: "Not authorised"  
+  
+  
+
+####### SPService #######
+
+  /sp/response:
+    post:
+      tags:
+        - SPService
+      summary: Callback. Pass a standard response object to be handled.
+      description: Process an Authn or Data response from the RequestManager to send it back to the remote SP
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "responseAssertions"  
+          in: "header"
+          description: The standard response object(s) representing the response(s) the remote IdP and/or SEAL issued
+          required: true
+          schema:
+            $ref: "#/definitions/attributeSetList"
+      responses:
+        200:
+           description: "Response admitted"
+        400:
+          description: "Bad response"
+        401:
+          description: "Not authorised"
+
+          
+  
+####### AuthenticationSource #######
+
+  /as/authenticate:
+    post:
+      tags:
+        - AuthenticationSource
+      summary: Pass a standard authn request object to be handled by an auth source ms.
+      description: Process an Authn request
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "idpRequest"
+          in: "header"
+          description: The standard request object representing the request to be issued to the auth source
+          required: true
+          schema:
+            $ref: "#/definitions/attributeSet"
+        - name: "idpMetadata"  
+          in: "header"
+          description: The metadata object of the remote IDP that must be queried
+          required: true
+          schema:
+            $ref: "#/definitions/entityMetadata"
+      responses:
+        200:
+          description: "Request admitted"
+        400:
+          description: "Bad request"
+        401:
+          description: "Request not authorised"
+  
+  
+
+####### IdentitySource #######
+
+  /is/query:
+    post:
+      tags:
+        - IdentitySource
+      summary: Pass a data query request object to be handled by an identity module ms.
+      description: Process a Data request
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "apRequest"
+          in: "header"
+          description: The standard request object representing the request to be issued to the identity source
+          required: true
+          schema:
+            $ref: "#/definitions/attributeSet"
+        - name: "apMetadata"
+          in: "header"
+          description: The metadata object of the remote AP that must be queried
+          required: true
+          schema:
+            $ref: "#/definitions/entityMetadata"
+        - name: "authenticationSet"
+          in: "header"
+          description: A standard response object containing the attributes retreved from the user authentication on SEAL, if any (for now, just ignore).
+          required: false
+          schema:
+            $ref: "#/definitions/attributeSet"
+      responses:
+        200:
+          description: "Request admitted"
+        400:
+          description: "Bad request"
+        401:
+          description: "Request not authorised"
+  
+
+
+####### Persistence #######
+
+  /per/load:
+    post:
+      tags:
+        - Persistence
+      summary: Setup a persistence mechanism and load a secure storage into session.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Persistence storage loaded"
+        404:
+          description: "Error loading persistence storage"
+
+  /per/store:
+    post:
+      tags:
+        - Persistence
+      summary: Save session data to the configured persistence mechanism.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Persistence storage loaded"
+        404:
+          description: "Error loading persistence storage"
+
+
+  
+####### IDBootstrapping #######
+
+  /idboot/generate:
+    post:
+      tags:
+        - IDBootstrapping
+      summary: Generate a new identity in session and link it to the authenticated identity.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "authenticationSet"
+          in: "header"
+          description: A standard response object containing the attributes retrieved from the user authentication on SEAL, if any.
+          required: false
+          schema:
+            $ref: "#/definitions/attributeSet"
+      responses:
+        200:
+          description: "Identity generated"
+          schema:
+            $ref: "#/definitions/dataSet" #TODO define 
+        404:
+          description: "Error bootstrapping identity"
+
+  /idboot/update/{datasetId}:
+    post:
+      tags:
+        - IDBootstrapping
+      summary: Refresh a derived identity in session (if persistent identity, this can be idle).
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "datasetId"
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Identity refreshed"
+          schema:
+            $ref: "#/definitions/dataSet" 
+        404:
+          description: "Error refreshing identity"
+          
+          
+  /idboot/update/{datasetId}/credentials:
+    post:
+      tags:
+        - IDBootstrapping
+      summary: Refresh the associated authentication credentials (if any) of a derived identity in session (if no credentials, this can be idle). Do not confuse with VCs
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "datasetId"
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Credetials refreshed"
+        404:
+          description: "Error refreshing credentials"
+
+
+  /idboot/delete/{datasetId}:
+    post:
+      tags:
+        - IDBootstrapping
+      summary: Delete a derived identity in session.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "datasetId"
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Identity deleted"
+        404:
+          description: "Error deleting identity"
+
+
+  /idboot/revoke:
+    post:
+      tags:
+        - IDBootstrapping
+      summary: Revoke a derived identity in session.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "datasetId"
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Identity revoked"
+        404:
+          description: "Error revoking identity"
+
+
+  
+####### IDLinking #######
+
+  /link/request/submit:
+    post:
+      tags:
+        - IDLinking
+      summary: Start a link request.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "request"  
+          in: "cookie"
+          required: true
+          schema:
+            $ref: "#/definitions/linkRequest" #TODO define object
+      responses:
+        200:
+          description: "Request submitted"
+          schema: #Now the request has the requestID filled in
+            $ref: "#/definitions/linkRequest"
+        404:
+          description: "Error sending message"
+                    
+          
+  /link/{requestId}/status:
+    post:
+      tags:
+        - IDLinking
+      summary: Check the status of a link request.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+      responses:
+        200:
+          description: "Incoming status"
+          type: string
+        404:
+          description: "Error requesting status"
+  
+  
+  /link/{requestId}/cancel:
+    post:
+      tags:
+        - IDLinking
+      summary: Cancel a link request.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+      responses:
+        200:
+          description: "Request canceled"
+        404:
+          description: "Error cancelling request"
+
+
+  /link/{requestId}/files/upload:
+    post:
+      tags:
+        - IDLinking
+      summary: Upload a file to a request.
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+        - name: "file"  
+          in: "formData"
+          required: true
+          schema:
+            type: string
+            format: base64
+      responses:
+        200:
+          description: "File uploaded"
+        404:
+          description: "Error uploading file"
+
+
+  /link/{requestId}/messages/send/{recipient}:
+    post:
+      tags:
+        - IDLinking
+      summary: Send a message to a validation officer or requester in the context of a link request.
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+        - name: "recipient"  
+          in: "path"
+          required: true
+          type: string
+          enum:
+            - officer
+            - requester
+        - name: "message"  
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Message sent"
+        404:
+          description: "Error sending message"
+          
+
+  /link/{requestId}/messages/receive:
+    post:
+      tags:
+        - IDLinking
+      summary: Receive messages from a conversation in the context of a link request.
+      description: _
+      produces:
+        - "application/json"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming messages"
+          schema:
+            $ref: "#/definitions/conversation" # TODO define object
+        404:
+          description: "Error fetching messages"
+          
+          
+  /link/{requestId}/result/get:
+    post:
+      tags:
+        - IDLinking
+      summary: Receive resolution of a link request.
+      description: _
+      produces:
+        - "application/json"
+     consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming messages"
+          schema: #Request will now have the resolution field filled in
+            $ref: "#/definitions/linkRequest"
+        404:
+          description: "Error fetching messages"
+          
+          
+  /link/{requestId}/lock:
+    post:
+      tags:
+        - IDLinking
+      summary: Reserve exclusive access to a link request. Should have a timeout by default
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Request locked"
+        404:
+          description: "Error fetching messages"
+
+          
+  /link/{requestId}/unlock:
+    post:
+      tags:
+        - IDLinking
+      summary: Release exclusive access to a link request.
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Request unlocked"
+        404:
+          description: "Error fetching messages"
+          
+          
+  /link/{requestId}/get:
+    post:
+      tags:
+        - IDLinking
+      summary: Get a link request.
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming request"
+          schema:
+            $ref: "#/definitions/linkRequest"
+        404:
+          description: "Error getting request"
+
+  /link/{requestId}/approve:
+    post:
+      tags:
+        - IDLinking
+      summary: Approve a locked link request.
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Request Approved"
+        404:
+          description: "Error approving request"
+          
+          
+  /link/{requestId}/reject:
+    post:
+      tags:
+        - IDLinking
+      summary: Reject a locked link request.
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Request Rejected"
+        404:
+          description: "Error rejecting request"
+
+
+  /link/{requestId}/files/download/list:
+    post:
+      tags:
+        - IDLinking
+      summary: Download the list of files attached to a request.
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming File list" # TODO: move both descriptions to a definition and refer
+          schema:
+            type: array
+              items:
+                type: object
+                  properties:
+                    filename:
+                      type: string
+                    fileID:
+                      type: string
+                    mimeType:
+                      type: string
+                    fileSize:
+                      type: integer
+        404:
+          description: "Error getting request file list"
+
+
+  /link/{requestId}/files/download/{fileID}:
+    post:
+      tags:
+        - IDLinking
+      summary: Download the list of files attached to a request.
+      description: _
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+        - name: "fileID"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming File"
+          content:
+            */*:
+              schema:
+                type: string
+                format: binary
+        404:
+          description: "Error getting request"
+
+
+  
+####### APIGatewayLink #######
+
+  /linkapp/list/{collection}:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Get a collection of elements to be displayed on the selector widget.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "collection"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming list"
+          type: array
+            items:
+             type: object
+        404:
+          description: "Collection not found"
+          
+          
+  /linkapp/session/start:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Start a session on the server, receive the session token for later reference.
+      description: _
+      produces:
+        - "text/plain"
+      parameters:
+        - name: "sessionID" #To retake a session in case it already exists
+          in: "query"
+          required: false
+          type: string
+      responses:
+        200:
+          description: "Session started"
+          type: string
+        404:
+          description: "Session start error"
+
+          
+  /linkapp/session/end:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: End a session on the server, receive the session token for later reference.
+      description: _
+      parameters:
+        - name: "sessionID"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Session ended"
+        404:
+          description: "Session end error"
+          
+
+  /linkapp/auth/{moduleID}/login:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Login through a specifc auth method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+  /linkapp/auth/{moduleID}/logout:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Logout on a specifc auth method module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+  
+  /linkapp/modules/list:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Get a list of pending link requests that can be handled, from all modules.
+    by the authenticated official.
+      description: _
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Incoming list"
+          type: array
+            items:
+             type: object
+        404:
+          description: "Collection not found"
+
+          
+  /linkapp/requests/{moduleID}/list:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Get a list of pending link requests that can be handled
+    by the authenticated official on a specific module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming list"
+          type: array
+          schema:
+            $ref: "#/definitions/linkRequest"
+        404:
+          description: "Collection not found"
+
+  
+  /linkapp/requests/{moduleID}/{requestId}/lock:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Lock a pending link request to prevent other officials
+    from handling it, on a specific module.
+      description: _
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+     responses:
+        200:
+          description: "Request locked"
+        403:
+          description: "Requets already locked"
+        404:
+          description: "Error locking request"
+
+  
+  /linkapp/requests/{moduleID}/{requestId}/unlock:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Release a locked a pending link request so other officials can handle it, on a specific module.
+      description: _
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+     responses:
+        200:
+          description: "Request unlocked"
+        403:
+          description: "Request already unlocked"
+        404:
+          description: "Error locking request"
+
+  
+  /linkapp/requests/{moduleID}/{requestId}/get:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Get a pending link request from a specific module.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming request"
+          schema:
+            $ref: "#/definitions/linkRequest"
+        404:
+          description: "Error getting request"
+
+
+  /linkapp/requests/{moduleID}/{requestId}/approve:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Approve a pending link request from a specific module.
+      description: _
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Request approved"
+        404:
+          description: "Error approving request"
+
+
+  /linkapp/requests/{moduleID}/{requestId}/reject:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Approve a pending link request from a specific module.
+      description: _
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Request rejected"
+        404:
+          description: "Error rejecting request"
+
+
+  /linkapp/requests/{moduleID}/{requestId}/files/download/list:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Get the list of files uploaded for a given request in a module
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming File list"
+          schema:
+            type: array
+              items:
+                type: object
+                  properties:
+                    filename:
+                      type: string
+                    fileID:
+                      type: string
+                    mimeType:
+                      type: string
+                    fileSize:
+                      type: integer
+        404:
+          description: "Error getting request file list"
+
+
+  /cl/ident/linking/{moduleID}/{requestId}/files/download/{fileID}:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Get a file for a given request in a module
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+        - name: "fileID"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming File"
+          content:
+            */*:
+              schema:
+                type: string
+                format: binary
+        404:
+          description: "Error getting request"
+ 
+  
+  /cl/ident/linking/{moduleID}/{requestId}/messages/send:
+    post:
+      tags:
+        - APIGatewayLink
+      summary: Send a message to a requester on a specific method module.
+      description: _
+      produces:
+        - "application/json"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+        - name: "message"  
+          in: "formData"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+          
+          
+  /cl/ident/linking/{moduleID}/{requestId}/messages/receive:
+    get:
+      tags:
+        - APIGatewayLink
+      summary: Receive messages from a requester on a
+    specific method module (on the response payload as a
+    messageListObject).
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: "requestId"  
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+
+
+####### VerifiableClaimIssuing #######
+
+  /vcissuing/generate:  # TODO
+
+  /vcissuing/revoke:  # TODO
+
+
+####### Revocation #######
+
+  /revoked/list/set:
+    get:
+      tags:
+        - Revocation
+      summary: Submit a list of revoked data set or verifiable claim IDs.
+      description: _
+      consumes:
+        - "application/json"
+      parameters:
+        - in: body
+          name: revocationList
+          description: List of revoked data sets or VCs
+          required: true
+          schema:
+            $ref: '#/definitions/revocationList' #TODO define object
+      responses:
+        200:
+          description: "Revocation list set"
+        404:
+          description: "Error setting revocation list"
+
+          
+  /revoked/list/get:
+    get:
+      tags:
+        - Revocation
+      summary: Fetch a list of revoked data set or verifiable claim IDs.
+      description: _
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Revocation list"
+          schema:
+            $ref: '#/definitions/revocationList'
+        404:
+          description: "Error getting revocation list"
+
+          
+  /revoked/{datasetID}/:
+    get:
+      tags:
+        - Revocation
+      summary: Check if a data set or verifiable claim is revoked.
+      description: _
+      consumes:
+        - "application/json"
+      parameters:
+        - in: path
+          name: datasetID
+          description: data set id to check
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Valid"
+        403:
+          description: "Revoked"
+        404:
+          description: "Error checking revocation"
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+          
+  
+  
+  
+      
+definitions:
+
+
+####### SessionManager ########
+
+
+  MngrSessionTO:
+    type: object
+    properties:
+      sessionId:
+        type: string
+      sessionVariables:
+        type: object
+    title: MngrSessionTO
+
+  SessionMngrResponse:
+    type: object
+    properties:
+      additionalData:
+        type: string
+      code:
+        type: string
+        enum:
+          - OK
+          - ERROR
+          - NEW
+      error:
+        type: string
+      sessionData:
+        $ref: '#/definitions/MngrSessionTO'
+    title: SessionMngrResponse
+
+  UpdateDataRequest:
+    type: object
+    properties:
+      dataObject:
+        type: string
+      sessionId:
+        type: string
+      variableName:
+        type: string
+    title: UpdateDataRequest
+
+  View:
+    type: object
+    properties:
+      contentType:
+        type: string
+    title: View
+
+
+####### ConfigManager ########
+####### APIGateway #######
+####### APIGatewaySP #######
+####### RequestManager ####### 
+####### SPService #######
+####### AuthenticationSource #######
+####### IdentitySource #######
+####### Persistence #######
+####### IDBootstrapping #######
+####### IDLinking #######
+####### APIGatewayLink #######
+####### VerifiableClaimIssuing #######
+####### Revocation #######
+
+
+
+
+
+
+
+
+  
