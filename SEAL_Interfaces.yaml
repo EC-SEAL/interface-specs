@@ -434,7 +434,7 @@ paths:
         200:
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/entityMetadata" # TODO: private key to be included
+            $ref: "#/definitions/entityMetadata"
         404:
           description: "Internal configuration not found"
           
@@ -501,7 +501,7 @@ paths:
         200:
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/attributeMapList"  # TODO: define attributeMap and attributeMapList
+            $ref: "#/definitions/attributeMapList"
         404:
           description: "Attribute Profile not found"
 
@@ -591,15 +591,7 @@ paths:
         200:
           description: "Module access trigger"
           schema:
-            $ref: "#/definitions/moduleTrigger" #TODO define object. Will include :
-                                #response payload data
-                                # response status
-                                #the access mechanism (HTTP-POST-REDIRECT,
-                                # HTTP-GET-REDIRECT, HTTP-GET,
-                                # HTTP-POST,  HTTP-GET-SIG, HTTP-POST-SIG)
-                                #the url to access
-                                #body type
-                                #body content
+            $ref: "#/definitions/moduleTrigger"
         404:
           description: "Error accessing module"
           
@@ -617,6 +609,24 @@ paths:
           in: "path"
           required: true
           type: string
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+
+
+  /cl/auth/logout:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Logout from all logged-in modules (chain logout-calls
+    for all modules).
+      description: _
+      produces:
+        - "application/json"
       responses:
         200:
           description: "Module access trigger"
@@ -713,6 +723,25 @@ paths:
         404:
           description: "Error accessing module"
 
+
+  /cl/ident/mgr/list:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Get the list of user identity data sets currently
+    loaded or fetched in session.
+      description: _
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Incoming list"
+          type: array
+          schema:
+            $ref: "#/definitions/dataStore"
+        404:
+          description: "Collection not found"
+                    
           
   /cl/ident/mgr/{datasetID}/refresh:
     get:
@@ -963,7 +992,7 @@ paths:
         - APIGatewayClient
       summary: Receive messages from a validation officer on a
     specific method module (on the response payload as a
-    messageListObject).  #TODO implement this object
+    conversation object).
       description: _
       produces:
         - "application/json"
@@ -1005,6 +1034,21 @@ paths:
             $ref: "#/definitions/moduleTrigger"
         404:
           description: "Error accessing module"
+
+          
+  /cl/callback:
+    get:
+      tags:
+        - APIGatewayClient
+      summary: Return page. All specific modules must call this URL
+    when done. This URL will signal the client to retake control of
+    the flow
+      description: _
+      responses:
+        200:
+          description: "Returning to client"
+        404:
+          description: "Error returning to client"
 
           
   
@@ -1412,7 +1456,7 @@ paths:
         200:
           description: "Identity generated"
           schema:
-            $ref: "#/definitions/dataSet" #TODO define 
+            $ref: "#/definitions/dataSet"
         404:
           description: "Error bootstrapping identity"
 
@@ -1543,7 +1587,7 @@ paths:
           in: "cookie"
           required: true
           schema:
-            $ref: "#/definitions/linkRequest" #TODO define object
+            $ref: "#/definitions/linkRequest"
       responses:
         200:
           description: "Request submitted"
@@ -1694,7 +1738,7 @@ paths:
         200:
           description: "Incoming messages"
           schema:
-            $ref: "#/definitions/conversation" # TODO define object
+            $ref: "#/definitions/conversation"
         404:
           description: "Error fetching messages"
           
@@ -1876,20 +1920,9 @@ paths:
           type: string
       responses:
         200:
-          description: "Incoming File list" # TODO: move both descriptions to a definition and refer
+          description: "Incoming File list"
           schema:
-            type: array
-              items:
-                type: object
-                  properties:
-                    filename:
-                      type: string
-                    fileID:
-                      type: string
-                    mimeType:
-                      type: string
-                    fileSize:
-                      type: integer
+            $ref: "#/definitions/fileList"
         404:
           description: "Error getting request file list"
 
@@ -2014,19 +2047,15 @@ paths:
         404:
           description: "Error accessing module"
 
-  /linkapp/auth/{moduleID}/logout:
+          
+  /linkapp/auth/logout:
     get:
       tags:
         - APIGatewayLink
-      summary: Logout on a specifc auth method module.
+      summary: Logout on the used auth method module.
       description: _
       produces:
         - "application/json"
-      parameters:
-        - name: "moduleID"  
-          in: "path"
-          required: true
-          type: string
       responses:
         200:
           description: "Module access trigger"
@@ -2219,18 +2248,7 @@ paths:
         200:
           description: "Incoming File list"
           schema:
-            type: array
-              items:
-                type: object
-                  properties:
-                    filename:
-                      type: string
-                    fileID:
-                      type: string
-                    mimeType:
-                      type: string
-                    fileSize:
-                      type: integer
+            $ref: "#/definitions/fileList"
         404:
           description: "Error getting request file list"
 
@@ -2306,7 +2324,7 @@ paths:
         - APIGatewayLink
       summary: Receive messages from a requester on a
     specific method module (on the response payload as a
-    messageListObject).
+    conversation object).
       description: _
       produces:
         - "application/json"
@@ -2352,7 +2370,7 @@ paths:
           description: List of revoked data sets or VCs
           required: true
           schema:
-            $ref: '#/definitions/revocationList' #TODO define object
+            $ref: '#/definitions/revocationList'
       responses:
         200:
           description: "Revocation list set"
@@ -2468,19 +2486,420 @@ definitions:
 
 
 ####### ConfigManager ########
+
+  #Descriptor Object of a Microservice
+  msMetadata:
+    description: Specification of a given microservice.
+    type: object
+    properties:
+      msId:
+        description: A unique readable name for a microservice.
+        type: string
+      authorisedMicroservices:
+        type: array
+        description: List of ms identifiers that will be authorised to contact this microservice (will be used by the SM when validating a token).
+        items:
+          type: string
+      rsaPublicKeyBinary:
+        description: Public key of the microservice in B64. The ms will keep their own private key.
+        type: string
+      publishedAPI:
+        type: array
+        description: List of the interfaces api endpoints implememnted by this ms (this will determine which types does the ms belong to)
+        items:
+          $ref: '#/definitions/publishedApiType'
+  
+  
+  publishedApiType:
+    description: Endpoint descriptor, where requests can be made
+    type: object
+    properties:
+      apiClass:
+        $ref: '#/definitions/apiClassEnum'
+      apiCall:
+        type: string
+      apiConnectionType:
+        $ref: '#/definitions/apiConnectionType'
+      apiEndpoint:
+        type: string
+  
+  
+  apiConnectionType:
+    type: string
+    enum:
+      - post
+      - get
+
+      
+  msMetadataList:
+    type: array
+    items: 
+      $ref: '#/definitions/msMetadata'
+      
+
+      
+  
+            
+  #Types of Microservice #TODO, update
+  apiClassEnum:
+    type: string
+    enum:
+      - APIGW
+
+
+
+    
+  
+  # Descriptor Object for an External Entity (data source, authsource)
+  entityMetadata:
+    description: Information about the an external entity
+    type: object
+    properties:
+      entityId:
+        description: Unique identifier of the entity, usually a metadata url
+        type: string
+        example: "https://esmo.uji.es/gw/saml/idp/metadata.xml"
+      defaultDisplayName:
+        description: Name to be displayed on UI, in the default language/encoding
+        type: string
+        example: "UJI Identity Provider"
+      displayNames:
+        description: list of alternative display names, by language or encoding
+        type: object
+        additionalProperties:
+            type: string
+        example: {"ES" : "UJI Proveedor de Identidad","EN" : "UJI Identity Provider"}
+      logo:
+        description: B64 string with an image binary to be displayed at UI
+        type: string
+        example: "AWDGRsFbFDEfFGTNNJKKYGFVFfDDSSSDCCC=="
+      location:
+        description: unspecified list of information items about the physical or political location of the entity, to facilitate discovery
+        type: array
+        items:
+          type: string
+      protocol:
+        description: Which protocol does this entity support (SAML, OIDC, etc.)
+        type: string
+      microservice:
+        description: list of identifiers of microservice able to handle this external entity
+        type: array
+        items:
+          type: string
+      claims:
+        description: list of attributes supported/requested by default by this entity
+        type: array
+        items:
+          type: string
+        example: ["displayName","surname","dateOfBirth","eduPersonAffiliation"]
+      endpoints:
+        description: List of service endpoints, where this Entity will accept requests/responses.
+        type: array
+        items:
+          $ref: '#/definitions/endpointType'
+      securityKeys:
+        description: List of keys held by this entity
+        type: array
+        items:
+          $ref: '#/definitions/securityKeyType'
+      encryptResponses:
+        description: whether this entity will issue/expect encrypted responses
+        type: boolean
+        example: false
+      supportedEncryptionAlg:
+        description: list of supported encryption algorithms
+        type: array
+        items:
+          type: string
+        example: ["AES256","AES512"]
+      signResponses:
+        description: whether this entity will issue/expect signed responses
+        type: boolean
+        example: true
+      supportedSigningAlg:
+        description: list of supported signing algorithms
+        type: array
+        items:
+          type: string
+        example: ["RSA-SHA256"]
+      otherData:
+        description: Dictionary of additional fields, specific for a certain entity type or protocol
+        type: object
+        additionalProperties: true   #Indicates free-form object
+        example: ["attributeMappingToEIDAS" : {"displayName" : "CurrentGivenName", "surname" : "CurrentFamilyName"}]
+ 
+ 
+  entityMetadataList:
+     type: array
+     items: 
+       $ref: '#/definitions/entityMetadata'
+      
+  
+    
+  endpointType:
+    description: Endpoint descriptor, where requests can be made or responses sent.
+    type: object
+    properties:
+      type:
+        description: String identifying the kind of endpoint (depends on each protocol)
+        type: string
+        example: "SSOService"
+      method: 
+        description: String identifying the method to access the endpoint (depends on each protocol, i.e. HTTP-POST).
+        type: string
+        example: "HTTP-POST"
+      url:
+        description: Access url of the endpoint 
+        type: string
+        example: "https://esmo.uji.es/gw/saml/idp/SSOService.php"
+
+        
+  securityKeyType:
+    description: Descriptor of a key or certificate.
+    type: object
+    properties:
+      keyType:
+        description: String identifying the kind of key
+        type: string
+        example: "RSAPublicKey"
+      usage: 
+        description: To which use is this key intended.
+        type: string
+        enum:
+            - signing
+            - encryption
+        example: "signing"
+      key:
+        description: B64 string representing the key binary 
+        type: string
+        example: "MDAACaFgw...xFgy="
+
+
+
+        
+
+        
+  attributeType:
+    description: Contents of an attribute item.
+    type: object
+    properties:
+      name:
+        description: Unique class identifier of the attribute
+        type: string
+        example: "http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName"
+      friendlyName:
+        description: Class identifier of the attribute (short version, might have collisions)
+        type: string
+        example: "CurrentGivenName"
+      encoding:
+        description: String identifying the encoding method:"UTF-8" , "BASE64", etc.
+        type: string
+        example: "plain"
+      language:
+        description: String identifying the language code of the value contents
+        type: string
+        example: "ES_es"
+      isMandatory:
+        description: To mark the mandatoriness of the attribute.
+        type: boolean
+        example: true
+      values:
+        description: List of values for the attribute
+        type: array
+        items:
+          type: string
+        example: ["JOHN"]
+
+
+  attributeTypeList:
+      type: array
+      items: 
+        $ref: '#/definitions/attributeType'
+
+
+
+        
+####### RequestManager #######
+
+ # Descriptor Object for an Attribute Set (a data request or response)
+  attributeSet:
+    description: Object representing a generic request/response. Used for in-application transference of the security assertions or claims containing trusted user information (attribute values); also to set the list of attributes to be requested.
+    type: object
+    properties:
+      id:
+        description: Unique identifier of the set
+        type: string
+        example: "6c0f70a8-f32b-4535-b5f6-0d596c52813a"
+      type:
+        description: Kind of set
+        type: string
+        enum:
+            - Request
+            - Response
+            - AuthResponse
+        example: "Response"
+      issuer:
+        description: ID of the External Entity which issued the set
+        type: string
+        example: "https://esmo.uji.es/gw/saml/idp/metadata.xml"
+      recipient:
+        description: ID of the External Entity which the set is addressed to
+        type: string
+        example: "https://esmo.uji.es/gw/saml/sp/metadata.xml"
+      inResponseTo:
+        description: In response objects, the ID of the request which the set is responding to
+        type: string
+        example: "aaaa70a8-f32b-4535-b5f6-0d596cbbbbb"
+      loa:
+        description: Level of trust of the authentication related to the set, if it is a response for an eIDAS authentication request
+        type: string
+        example: "http://eidas.europa.eu/LoA/substantial"
+      notBefore:
+        description: Minimum validity date of the set
+        type: string
+        example: "2018-12-06T19:40:16Z"
+      notAfter:
+        description: Maximum validity date of the set
+        type: string
+        example: "2018-12-06T19:45:16Z"
+      status:
+        description: "To represent the tatus of the set (ok, error, etc.)."
+        #required: false # SYNTAX ERROR
+        $ref: '#/definitions/attributeSetStatus'
+      attributes:
+        description: The list of the attributes or claims related to the user, contained on the set
+        type: array
+        items:
+            $ref: '#/definitions/attributeType'
+      properties:
+        description: Dictionary of additional fields of data related to the attributes in the set(strings only), specific for a certain entity type or protocol. List of useful metadata related to the attributes and any specific information that came with the remote SP/RP request (or was filled in with metadata stored presets for said SP/RP) and might be of need for some implementation of the local SP to issue the authentication request.
+        type: object
+        #Indicates free-form object
+        additionalProperties:
+            type: string       
+
+            
+  attributeSetStatus:
+    type: object
+    properties:
+      code:
+        description: main standard status code from a closed list.
+        type: string
+        enum:
+            - OK
+            - ERROR
+      subcode:
+        description: free text field to represent status codes, open for specific applications or fluxes.
+        type: string
+        #required: false # SYNTAX ERROR
+      message:
+        description: a free text string to provide human-readable status-error information
+        type: string
+        #required: false # SYNTAX ERROR
+            
+            
+            
+  attributeSetList:
+      type: array
+      items: 
+        $ref: '#/definitions/attributeSet'
+
+
+        
+  attributeMap:
+    description: Represent relatioonships between attributes in two
+    attribute profiles. i.e. eduPerson.givenName <-> eIDAS.FirstName
+    type: object
+      properties:
+        keyProfile:
+          type: string
+          description: Name of the attribute profile specified in the keys
+        valueProfile:
+          type: string
+          description: Name of the attribute profile specified in the values
+        mappings:
+          type: object
+          additionalProperties:
+            type: string
+            
+    
+  attributeMapList:
+    type: array
+    items: 
+      $ref: '#/definitions/attributeMap'
+
+
+
+      
 ####### APIGateway #######
+
+
+  moduleTrigger:
+    description: Response object of the API GW. Returns data, status
+    and commands how to deal the loading of a specific module
+    type: object
+      properties:
+        
+    #TODO define object. Will include :
+      #response payload data (type: object)
+      # response status
+      #the access mechanism (HTTP-POST-REDIRECT,
+      # HTTP-GET-REDIRECT, HTTP-GET,
+      # HTTP-POST,  HTTP-GET-SIG, HTTP-POST-SIG)
+      #the url to access
+      #body type
+      #body content
+
+            
+
+  conversation: ## TODO
+
+
+
+####### Persistence #######
+
+  dataStore: ## TODO
+    
+
+  dataSet: ## TODO
+
+
+    
+####### IDLinking #######
+
+  linkRequest: ## TODO
+
+
+  fileList:
+    description: List of file metadata objects
+    type: array
+    items:
+      type: object
+        properties:
+          filename:
+            type: string
+          fileID:
+            type: string
+          mimeType:
+            type: string
+          fileSize:
+            type: integer
+
+
+
+            
+####### IDBootstrapping #######
+####### APIGatewayLink #######
+####### VerifiableClaimIssuing #######
 ####### APIGatewaySP #######
-####### RequestManager ####### 
 ####### SPService #######
 ####### AuthenticationSource #######
 ####### IdentitySource #######
-####### Persistence #######
-####### IDBootstrapping #######
-####### IDLinking #######
-####### APIGatewayLink #######
-####### VerifiableClaimIssuing #######
+
+
 ####### Revocation #######
 
+  revocationList: ## TODO
 
 
 
@@ -2488,4 +2907,14 @@ definitions:
 
 
 
-  
+
+    
+
+
+
+
+
+
+
+
+
