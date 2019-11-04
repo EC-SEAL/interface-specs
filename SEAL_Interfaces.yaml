@@ -2253,7 +2253,7 @@ paths:
           description: "Error getting request file list"
 
 
-  /cl/ident/linking/{moduleID}/{requestId}/files/download/{fileID}:
+  /linkapp/requests/{moduleID}/{requestId}/files/download/{fileID}:
     get:
       tags:
         - APIGatewayLink
@@ -2286,7 +2286,7 @@ paths:
           description: "Error getting request"
  
   
-  /cl/ident/linking/{moduleID}/{requestId}/messages/send:
+  /linkapp/requests/{moduleID}/{requestId}/messages/send:
     post:
       tags:
         - APIGatewayLink
@@ -2318,7 +2318,7 @@ paths:
           description: "Error accessing module"
           
           
-  /cl/ident/linking/{moduleID}/{requestId}/messages/receive:
+  /linkapp/requests/{moduleID}/{requestId}/messages/receive:
     get:
       tags:
         - APIGatewayLink
