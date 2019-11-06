@@ -1,21 +1,13 @@
-openapi: "3.0.2"
+swagger: '2.0' #Be aware of the version.
 info:
   title: SEAL Service Microservice Specification
   version: 0.0.1
-  description: "This document contains the formal specification of all standard module interfaces in SEAL Service.
-  
-  **Take into account that parameters marked as cookie type, will instead be passed through the session object**
+  description: "This document contains the formal specification of all standard module interfaces in SEAL Service. Take into account that parameters marked as cookie type, will instead be passed through the session object**
   "
   
 
 
-servers:
-    - url: https://domain/basepath
-        description: Production server
-    - url: https://domain/basepath
-        description: Pre-production server
-    - url: https://domain/basepath
-        description: Development server
+
   
 
 
@@ -306,15 +298,16 @@ paths:
       description: Get ...
       operationId: classMicroservicesGet
       produces:
-      - "application/json"
-      
+        - "application/json"
+      consumes:
+        - application/json
       parameters:
-      - name: "apiClass"  
-        in: "path"
-        required: true
-        type: string
-        schema:
-          $ref: '#/definitions/apiClassEnum'
+        - name: "apiClass"  
+          in: "path"
+          required: true
+          type: string
+          #schema:
+          #  $ref: '#/definitions/apiClassEnum'
       
       responses:
         200:
@@ -489,7 +482,6 @@ paths:
         - ConfigManager
       summary: Get the list of mappings of attributes with other sets, for the profile just specified.
       description: Get ...
-      operationId: attributeSetGet
       produces:
       - "application/json"
       parameters:
@@ -526,11 +518,8 @@ paths:
       responses:
         200:
           description: "Incoming list"
-          type: array
-          items:
-            type: object #Generic object, collections will be from a
-                      #base common "displayable" class, but I think this does not
-                      #support inheritance
+          schema:
+            $ref: "#/definitions/displayableList"
         404:
           description: "Collection not found"
           
@@ -551,7 +540,6 @@ paths:
       responses:
         200:
           description: "Session started"
-          type: string
         404:
           description: "Session start error"
 
@@ -622,8 +610,7 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Logout from all logged-in modules (chain logout-calls
-    for all modules).
+      summary: Logout from all logged-in modules (chain logout calls for all modules).
       description: _
       produces:
         - "application/json"
@@ -728,15 +715,13 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Get the list of user identity data sets currently
-    loaded or fetched in session.
+      summary: Get the list of user identity data sets currently    loaded or fetched in session.
       description: _
       produces:
         - "application/json"
       responses:
         200:
           description: "Incoming list"
-          type: array
           schema:
             $ref: "#/definitions/dataStore"
         404:
@@ -747,8 +732,7 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Update a retrieved or derived identity already on the
-    session store through the specific method module used to obtain it.
+      summary: Update a retrieved or derived identity already on the session store through the specific method module used to obtain it.
       description: _
       produces:
         - "application/json"
@@ -770,8 +754,7 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Delete a retrieved or derived identity already on the
-    session store through the specific method module used to obtain it.
+      summary: Delete a retrieved or derived identity already on the session store through the specific method module used to obtain it.
       description: _
       produces:
         - "application/json"
@@ -793,8 +776,7 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Revoke a retrieved or derived identity already on the
-    session store through the specific method module used to obtain it.
+      summary: Revoke a retrieved or derived identity already on the session store through the specific method module used to obtain it.
       description: _
       produces:
         - "application/json"
@@ -990,9 +972,7 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Receive messages from a validation officer on a
-    specific method module (on the response payload as a
-    conversation object).
+      summary: Receive messages from a validation officer on a specific method module (on the response payload as a conversation object).
       description: _
       produces:
         - "application/json"
@@ -1040,9 +1020,7 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Return page. All specific modules must call this URL
-    when done. This URL will signal the client to retake control of
-    the flow
+      summary: Return page. All specific modules must call this URL when done. This URL will signal the client to retake control of the flow
       description: _
       responses:
         200:
@@ -1072,9 +1050,8 @@ paths:
       responses:
         200:
           description: "Incoming list"
-          type: array
-            items:
-             type: object
+          schema:
+            $ref: "#/definitions/displayableList"
         404:
           description: "Collection not found"
           
@@ -1095,7 +1072,6 @@ paths:
       responses:
         200:
           description: "Session started"
-          type: string
         404:
           description: "Session start error"
 
@@ -1166,8 +1142,7 @@ paths:
     get:
       tags:
         - APIGatewaySP
-      summary: Retrieve the response token for the SP, to redirect
-    back to the SP specific module.
+      summary: Retrieve the response token for the SP, to redirect back to the SP specific module.
       description: _
       produces:
         - "application/json"
@@ -1249,13 +1224,13 @@ paths:
           required: true
           type: string
         - name: "dsResponse"  
-          in: "header"
+          in: "cookie"
           description: The standard response object representing the response from the remote IdP or the data selected from the user store
           required: true
           schema:
             $ref: "#/definitions/attributeSet"
         - name: "dsMetadata"
-          in: "header"
+          in: "cookie"
           description: The metadata object of the remote IdP that issued the response to the gateway, or the local SEAL metadata when data is collected from the user store
           required: true
           schema:
@@ -1287,7 +1262,7 @@ paths:
           required: true
           type: string
         - name: "responseAssertions"  
-          in: "header"
+          in: "cookie"
           description: The standard response object(s) representing the response(s) the remote IdP and/or SEAL issued
           required: true
           schema:
@@ -1319,13 +1294,13 @@ paths:
           required: true
           type: string
         - name: "idpRequest"
-          in: "header"
+          in: "cookie"
           description: The standard request object representing the request to be issued to the auth source
           required: true
           schema:
             $ref: "#/definitions/attributeSet"
         - name: "idpMetadata"  
-          in: "header"
+          in: "cookie"
           description: The metadata object of the remote IDP that must be queried
           required: true
           schema:
@@ -1357,19 +1332,19 @@ paths:
           required: true
           type: string
         - name: "apRequest"
-          in: "header"
+          in: "cookie"
           description: The standard request object representing the request to be issued to the identity source
           required: true
           schema:
             $ref: "#/definitions/attributeSet"
         - name: "apMetadata"
-          in: "header"
+          in: "cookie"
           description: The metadata object of the remote AP that must be queried
           required: true
           schema:
             $ref: "#/definitions/entityMetadata"
         - name: "authenticationSet"
-          in: "header"
+          in: "cookie"
           description: A standard response object containing the attributes retreved from the user authentication on SEAL, if any (for now, just ignore).
           required: false
           schema:
@@ -1410,21 +1385,41 @@ paths:
     post:
       tags:
         - Persistence
-      summary: Save session data to the configured persistence mechanism.
+      summary: Save session data to the configured persistence mechanism (front channel).
       description: _
       consumes:
       - "application/x-www-form-urlencoded"
       parameters:
         - name: "msToken"
           in: "formData"
-          description: The security token for ms to ms calls
+          description: The security token for ms to ms calls.
           required: true
           type: string
       responses:
         200:
-          description: "Persistence storage loaded"
+          description: "Persistence storage saved"
         404:
-          description: "Error loading persistence storage"
+          description: "Error saving persistence storage"
+          
+  /per/store/{sessionToken}:
+    get:
+      tags:
+        - Persistence
+      summary: Save session data to the configured persistence mechanism (back channel).
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "sessionToken"
+          in: "path"
+          description: The session token 
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Persistence storage saved"
+        404:
+          description: "Error saving persistence storage"
 
 
   
@@ -1447,7 +1442,7 @@ paths:
           required: true
           type: string
         - name: "authenticationSet"
-          in: "header"
+          in: "cookie"
           description: A standard response object containing the attributes retrieved from the user authentication on SEAL, if any.
           required: false
           schema:
@@ -1477,7 +1472,7 @@ paths:
           required: true
           type: string
         - name: "datasetId"
-          in: "formData"
+          in: "path"
           required: true
           type: string
       responses:
@@ -1504,7 +1499,7 @@ paths:
           required: true
           type: string
         - name: "datasetId"
-          in: "formData"
+          in: "path"
           required: true
           type: string
       responses:
@@ -1529,7 +1524,7 @@ paths:
           required: true
           type: string
         - name: "datasetId"
-          in: "formData"
+          in: "path"
           required: true
           type: string
       responses:
@@ -1615,11 +1610,13 @@ paths:
           type: string
         - name: "requestId"  
           in: "path"
+          type: string
           required: true
       responses:
         200:
           description: "Incoming status"
-          type: string
+          schema:
+            $ref: "#/definitions/linkRequest"
         404:
           description: "Error requesting status"
   
@@ -1639,7 +1636,8 @@ paths:
           required: true
           type: string
         - name: "requestId"  
-          in: "path"
+          in: path
+          type: string
           required: true
       responses:
         200:
@@ -1662,15 +1660,15 @@ paths:
           description: The security token for ms to ms calls
           required: true
           type: string
-        - name: "requestId"  
+        - name: "requestId"
           in: "path"
+          type: string
           required: true
         - name: "file"  
           in: "formData"
           required: true
-          schema:
-            type: string
-            format: base64
+          type: string
+          format: base64
       responses:
         200:
           description: "File uploaded"
@@ -1751,7 +1749,7 @@ paths:
       description: _
       produces:
         - "application/json"
-     consumes:
+      consumes:
         - "application/x-www-form-urlencoded"
       parameters:
         - name: "msToken"
@@ -1935,6 +1933,8 @@ paths:
       description: _
       consumes:
         - "application/x-www-form-urlencoded"
+      produces:
+        - "*/*"
       parameters:
         - name: "msToken"
           in: "formData"
@@ -1952,11 +1952,6 @@ paths:
       responses:
         200:
           description: "Incoming File"
-          content:
-            */*:
-              schema:
-                type: string
-                format: binary
         404:
           description: "Error getting request"
 
@@ -1980,9 +1975,8 @@ paths:
       responses:
         200:
           description: "Incoming list"
-          type: array
-            items:
-             type: object
+          schema:
+            $ref: "#/definitions/displayableList"
         404:
           description: "Collection not found"
           
@@ -2003,7 +1997,6 @@ paths:
       responses:
         200:
           description: "Session started"
-          type: string
         404:
           description: "Session start error"
 
@@ -2069,17 +2062,15 @@ paths:
     get:
       tags:
         - APIGatewayLink
-      summary: Get a list of pending link requests that can be handled, from all modules.
-    by the authenticated official.
+      summary: Get a list of pending link requests that can be handled, from all modules by the authenticated official.
       description: _
       produces:
         - "application/json"
       responses:
         200:
           description: "Incoming list"
-          type: array
-            items:
-             type: object
+          schema:
+            $ref: "#/definitions/displayableList"
         404:
           description: "Collection not found"
 
@@ -2088,8 +2079,7 @@ paths:
     get:
       tags:
         - APIGatewayLink
-      summary: Get a list of pending link requests that can be handled
-    by the authenticated official on a specific module.
+      summary: Get a list of pending link requests that can be handled by the authenticated official on a specific module.
       description: _
       produces:
         - "application/json"
@@ -2101,9 +2091,8 @@ paths:
       responses:
         200:
           description: "Incoming list"
-          type: array
           schema:
-            $ref: "#/definitions/linkRequest"
+            $ref: "#/definitions/displayableList"
         404:
           description: "Collection not found"
 
@@ -2112,8 +2101,7 @@ paths:
     get:
       tags:
         - APIGatewayLink
-      summary: Lock a pending link request to prevent other officials
-    from handling it, on a specific module.
+      summary: Lock a pending link request to prevent other officials from handling it, on a specific module.
       description: _
       parameters:
         - name: "moduleID"  
@@ -2124,7 +2112,7 @@ paths:
           in: "path"
           required: true
           type: string
-     responses:
+      responses:
         200:
           description: "Request locked"
         403:
@@ -2148,7 +2136,7 @@ paths:
           in: "path"
           required: true
           type: string
-     responses:
+      responses:
         200:
           description: "Request unlocked"
         403:
@@ -2261,6 +2249,8 @@ paths:
       description: _
       produces:
         - "application/json"
+      consumes:
+        - "*/*"
       parameters:
         - name: "moduleID"  
           in: "path"
@@ -2277,11 +2267,6 @@ paths:
       responses:
         200:
           description: "Incoming File"
-          content:
-            */*:
-              schema:
-                type: string
-                format: binary
         404:
           description: "Error getting request"
  
@@ -2322,9 +2307,7 @@ paths:
     get:
       tags:
         - APIGatewayLink
-      summary: Receive messages from a requester on a
-    specific method module (on the response payload as a
-    conversation object).
+      summary: Receive messages from a requester on a specific method module (on the response payload as a conversation object).
       description: _
       produces:
         - "application/json"
@@ -2349,9 +2332,9 @@ paths:
 
 ####### VerifiableClaimIssuing #######
 
-  /vcissuing/generate:  # TODO
-
-  /vcissuing/revoke:  # TODO
+#  /vcissuing/generate:  # TODO
+#
+#  /vcissuing/revoke:  # TODO
 
 
 ####### Revocation #######
@@ -2807,20 +2790,19 @@ definitions:
 
         
   attributeMap:
-    description: Represent relatioonships between attributes in two
-    attribute profiles. i.e. eduPerson.givenName <-> eIDAS.FirstName
+    description: Represent relatioonships between attributes in two attribute profiles. i.e. eduPerson.givenName <-> eIDAS
     type: object
-      properties:
-        keyProfile:
+    properties:
+      keyProfile:
+        type: string
+        description: Name of the attribute profile specified in the keys
+      valueProfile:
+        type: string
+        description: Name of the attribute profile specified in the values
+      mappings:
+        type: object
+        additionalProperties:
           type: string
-          description: Name of the attribute profile specified in the keys
-        valueProfile:
-          type: string
-          description: Name of the attribute profile specified in the values
-        mappings:
-          type: object
-          additionalProperties:
-            type: string
             
     
   attributeMapList:
@@ -2835,46 +2817,45 @@ definitions:
 
 
   moduleTrigger:
-    description: Response object of the API GW. Returns data, status
-    and commands how to deal the loading of a specific module
+    description: Response object of the API GW. Returns data, status and commands how to deal the loading of a specific module
     type: object
-      properties:
-        payload:
-          type: object
-          description: Response data. Any object format
-        status:
-          type: object
-          description: Status of the response
-          properties:
-            message:
-              type: string
-            mainCode:
-              type: string
-            secondaryCode:
-              type: string
-        access:
-          type: object
-          description: If the response commands the client to access elsewhere, this field will tell where and how
-          properties:
-            binding:
-              type: string
-              description: Mechanism to access the delegated resource
-              enum:
-                - HTTP-POST-REDIRECT
-                - HTTP-GET-REDIRECT
-                - HTTP-GET
-                - HTTP-POST
-                - HTTP-GET-SIG
-                - HTTP-POST-SIG
-            address:
-              type: string
-              description: the URL of the resource
-            contentType:
-              type: string
-              description: the MIME type of the body, if any
-            bodyContent:
-              type: string
-              description: If the access method requires to transfer data on the body of the request, it will be written here
+    properties:
+      payload:
+        type: object
+        description: Response data. Any object format
+      status:
+        type: object
+        description: Status of the response
+        properties:
+          message:
+            type: string
+          mainCode:
+            type: string
+          secondaryCode:
+            type: string
+      access:
+        type: object
+        description: If the response commands the client to access elsewhere, this field will tell where and how
+        properties:
+          binding:
+            type: string
+            description: Mechanism to access the delegated resource
+            enum:
+              - HTTP-POST-REDIRECT
+              - HTTP-GET-REDIRECT
+              - HTTP-GET
+              - HTTP-POST
+              - HTTP-GET-SIG
+              - HTTP-POST-SIG
+          address:
+            type: string
+            description: the URL of the resource
+          contentType:
+            type: string
+            description: the MIME type of the body, if any
+          bodyContent:
+            type: string
+            description: If the access method requires to transfer data on the body of the request, it will be written here
 
 
 ####### Persistence #######
@@ -2932,7 +2913,37 @@ definitions:
     
 ####### IDLinking #######
 
+  fileObject:
+    type: object
+    properties:
+      filename:
+        type: string
+      fileID:
+        type: string
+      contentType:
+        type: string
+        description: MIME type of the file content
+      fileSize:
+        type: integer
+      content:
+        type: string
+        format: byte    
+        description: If not empty, the b64 encoded content of the file.
+
+
+
+  fileList:
+    description: List of file metadata objects
+    type: array
+    items:
+      $ref: '#/definitions/fileObject'
+
+
+
   linkRequest:
+    description: Represents a linking request, as well as its resolution and the resulting linking dataset
+    type: object
+    properties:
       id:
         description: Unique identifier of the set
         type: string
@@ -2955,7 +2966,8 @@ definitions:
       lloa: 
         description: Level of certainty that both subjects are the same person
         type: string
-      issued: Date when the link was certified (the date this data set was issued)
+      issued:
+        description: Date when the link was certified (the date this data set was issued)
         type: string
         example: "2018-12-06T19:40:16Z"
       expiration:
@@ -2985,62 +2997,45 @@ definitions:
         additionalProperties:
             type: string
       evidence:
-        type: object
+        type: array
         description: List of additional files uploaded to the validator to check the person behind the identities
-        properties:
-            $ref: '#/definitions/fileList'
+        items:
+            $ref: '#/definitions/fileObject'
       conversation:
-        type: object
+        type: array
         description: List of messages exchanged between the requester and the validation officer
-        properties:
-            $ref: '#/definitions/conversation'
+        items:
+            $ref: '#/definitions/message'
 
 
-  fileList:
-    description: List of file metadata objects
-    type: array
-    items:
-      type: object
-        properties:
-          filename:
-            type: string
-          fileID:
-            type: string
-          contentType:
-            type: string
-            description: MIME type of the file content
-          fileSize:
-            type: integer
-          content:
-            type: string
-            format: byte    
-            description: If not empty, the b64 encoded content of the file.
+  message:
+    type: object
+    properties:
+      timestamp:
+        type: integer
+        description: date and time when the message was sent
+      sender:
+        type: string
+        description: Identifier of the user who sent the message
+      senderType:
+        type: string
+        description: Identifier of the user category who sent the message
+      recipient:
+        type: string
+        description: Identifier of the user whom the message is addressed to
+      recipientType:
+        type: string
+        description: Identifier of the user category whom the message is addressed to
+      message:
+        type: string
+        description: Content of the message
 
 
   conversation:
     description: List of messages exchanged between two users
     type: array
     items:
-      type: object
-      properties:
-        timestamp:
-          type: integer
-          description: date and time when the message was sent
-        sender:
-          type: string
-          description: Identifier of the user who sent the message
-        senderType:
-          type: string
-          description: Identifier of the user category who sent the message
-        recipient:
-          type: string
-          description: Identifier of the user whom the message is addressed to
-        recipientType:
-          type: string
-          description: Identifier of the user category whom the message is addressed to
-        message:
-          type: string
-          description: Content of the message
+      $ref: '#/definitions/message'
 
 
 
@@ -3056,11 +3051,18 @@ definitions:
 
 ####### Revocation #######
 
-#  revocationList: ## TODO
+  revocationList: ## TODO
+    type: object
 
 
 
-
+  displayableList:
+    type: array
+    items:
+      type: object #Generic object, collections will be from a
+                   #base common "displayable" class, but I think this does not
+                   #support inheritance
+  
 
 
 
