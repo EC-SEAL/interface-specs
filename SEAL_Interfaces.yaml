@@ -528,10 +528,10 @@ paths:
     get:
       tags:
         - APIGatewayClient
-      summary: Start a session on the server, receive the session token for later reference.
+      summary: Start a session on the server, receive the session token for later reference. SessionId to be returned on the payload
       description: _
       produces:
-        - "text/plain"
+        - "application/json"
       parameters:
         - name: "sessionID" #To retake a session in case it already exists
           in: "query"
@@ -540,6 +540,8 @@ paths:
       responses:
         200:
           description: "Session started"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
         404:
           description: "Session start error"
 
@@ -552,7 +554,7 @@ paths:
       description: _
       parameters:
         - name: "sessionID"
-          in: "path"
+          in: "query"
           required: true
           type: string
       responses:
@@ -571,6 +573,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -593,6 +599,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -614,6 +624,11 @@ paths:
       description: _
       produces:
         - "application/json"
+      parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
       responses:
         200:
           description: "Module access trigger"
@@ -632,6 +647,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -654,6 +673,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -676,6 +699,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -698,6 +725,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -719,6 +750,11 @@ paths:
       description: _
       produces:
         - "application/json"
+      parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
       responses:
         200:
           description: "Incoming list"
@@ -737,6 +773,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "datasetID"  
           in: "path"
           required: true
@@ -759,6 +799,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "datasetID"  
           in: "path"
           required: true
@@ -781,6 +825,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "datasetID"  
           in: "path"
           required: true
@@ -805,6 +853,10 @@ paths:
       consumes:
         - "application/x-www-form-urlencoded"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -835,6 +887,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -861,6 +917,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -887,6 +947,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -915,6 +979,10 @@ paths:
       consumes:
         - "multipart/form-data"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -947,6 +1015,10 @@ paths:
       consumes:
         - "application/x-www-form-urlencoded"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -977,6 +1049,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -1003,6 +1079,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"
           in: "path"
           required: true
@@ -1022,6 +1102,11 @@ paths:
         - APIGatewayClient
       summary: Return page. All specific modules must call this URL when done. This URL will signal the client to retake control of the flow
       description: _
+      parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
       responses:
         200:
           description: "Returning to client"
@@ -1084,7 +1169,7 @@ paths:
       description: _
       parameters:
         - name: "sessionID"
-          in: "path"
+          in: "query"
           required: true
           type: string
       responses:
@@ -1103,6 +1188,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -1125,6 +1214,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -1147,6 +1240,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2009,7 +2106,7 @@ paths:
       description: _
       parameters:
         - name: "sessionID"
-          in: "path"
+          in: "query"
           required: true
           type: string
       responses:
@@ -2028,6 +2125,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2049,6 +2150,11 @@ paths:
       description: _
       produces:
         - "application/json"
+      parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
       responses:
         200:
           description: "Module access trigger"
@@ -2066,6 +2172,11 @@ paths:
       description: _
       produces:
         - "application/json"
+      parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
       responses:
         200:
           description: "Incoming list"
@@ -2084,6 +2195,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2104,6 +2219,10 @@ paths:
       summary: Lock a pending link request to prevent other officials from handling it, on a specific module.
       description: _
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2128,6 +2247,10 @@ paths:
       summary: Release a locked a pending link request so other officials can handle it, on a specific module.
       description: _
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2154,6 +2277,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2178,6 +2305,10 @@ paths:
       summary: Approve a pending link request from a specific module.
       description: _
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2200,6 +2331,10 @@ paths:
       summary: Approve a pending link request from a specific module.
       description: _
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2224,6 +2359,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2252,6 +2391,10 @@ paths:
       consumes:
         - "*/*"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2282,6 +2425,10 @@ paths:
       consumes:
         - "application/x-www-form-urlencoded"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
@@ -2312,6 +2459,10 @@ paths:
       produces:
         - "application/json"
       parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
         - name: "moduleID"  
           in: "path"
           required: true
