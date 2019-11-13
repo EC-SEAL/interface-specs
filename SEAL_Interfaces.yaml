@@ -1498,26 +1498,65 @@ paths:
         404:
           description: "Error saving persistence storage"
           
-  /per/store/{sessionToken}:
-    get:
+  /per/load/{sessionToken}:
+    post:
       tags:
         - Persistence
-      summary: Save session data to the configured persistence mechanism (back channel).
+      summary: Silent setup of a persistence mechanism by loading a user-provided secure storage into session. (back channel).
       description: _
       consumes:
-      - "application/x-www-form-urlencoded"
+      - "application/json"
       parameters:
         - name: "sessionToken"
           in: "path"
           description: The session token 
           required: true
           type: string
+        - name: "cipherPassword"
+          in: "query"
+          description: The password that needs to be used to decrypt the blob, if encrypted
+          required: false
+          type: string
+        - in: body
+          name: dataStore
+          description: The data store to load
+          required: true
+          schema:
+            $ref: '#/definitions/dataStore'
+      responses:
+        200:
+          description: "Persistence storage loaded"
+        404:
+          description: "Error loading persistence storage"
+
+  /per/store/{sessionToken}:
+    get:
+      tags:
+        - Persistence
+      summary: Save session data to the configured persistence mechanism (back channel). Might return the signed and possibly encrypted datastore
+      description: _
+      produces:
+      - "application/json"
+      parameters:
+        - name: "sessionToken"
+          in: "path"
+          description: The session token 
+          required: true
+          type: string
+        - name: "cipherPassword"
+          in: "query"
+          description: The password to encrypt the blob 
+          required: false
+          type: string
       responses:
         200:
           description: "Persistence storage saved"
+        201:
+          description: "Persistence storage attached"
+          schema:
+            $ref: "#/definitions/dataStore"
         404:
           description: "Error saving persistence storage"
-
 
   
 ####### IDBootstrapping #######
@@ -3056,9 +3095,31 @@ definitions:
  
 
   dataStore:
-    type: array
-    items: 
-      $ref: '#/definitions/dataSet'
+    type: object
+    description: Represents a clear, encrypted and/or signed data set.
+    properties:
+      clearData:
+        type: array
+        description: If the data store is in cleartext, this will be set
+        required: false
+        items: 
+          $ref: '#/definitions/dataSet'
+      encryptedData:
+        type: string
+        description: If the data store is encrypted, this will be set. B64 string
+        required: false
+      signature:
+        type: string
+        description: If the data store is signed, signature goes here. B64 string. Sign always the decrypted dataset.
+        required: false
+      signatureAlgorithm:
+        type: string
+        description: Descriptor of the signature algorithm used.
+        required: false
+      encryptionAlgorithm:
+        type: string
+        description: Descriptor of the encryption algorithm used.
+        required: false
 
 
     
