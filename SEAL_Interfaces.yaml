@@ -3182,7 +3182,10 @@ definitions:
     type: object
     description: Represents a clear, encrypted and/or signed data set.
     properties:
-
+      id:
+        description: Unique identifier of the set
+        type: string
+        example: "6c0f70a8-f32b-4535-b5f6-0d596c52813a"
       encryptedData:
         type: string
         description: If the data store is encrypted, this will be set. B64 string
