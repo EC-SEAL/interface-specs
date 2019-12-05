@@ -1,7 +1,7 @@
 swagger: '2.0' #Be aware of the version.
 info:
   title: SEAL Service Microservice Specification
-  version: 0.0.1
+  version: 0.0.2
   description: "This document contains the formal specification of all standard module interfaces in SEAL Service. Take into account that parameters marked as cookie type, will instead be passed through the session object**
   "
   
@@ -715,6 +715,39 @@ paths:
         404:
           description: "Error accessing module"
 
+  /cl/ident/source/{moduleID}/load:
+    post:
+      tags:
+        - APIGatewayClient
+      summary: Load an identity dataset retrieved on a client-side module. Notice that in this case the client must be trusted, so be careful when integrating sources with this api.
+      description: _
+      produces:
+        - "application/json"
+      consumes:
+        - "application/json"
+      parameters:
+        - name: "sessionID"
+          in: "query"
+          required: true
+          type: string
+        - name: "moduleID"  
+          in: "path"
+          required: true
+          type: string
+        - name: dataset
+          in: body
+          description: The data set to add
+          required: true
+          schema:
+            $ref: '#/definitions/dataSet'
+      responses:
+        200:
+          description: "Module access trigger"
+          schema:
+            $ref: "#/definitions/moduleTrigger"
+        404:
+          description: "Error accessing module"
+          
           
   /cl/ident/derivation/{moduleID}/generate:
     get:
@@ -1454,6 +1487,32 @@ paths:
         401:
           description: "Request not authorised"
   
+  
+  /is/load:
+    post:
+      tags:
+        - IdentitySource
+      summary: Passively provide trusted identity data from a trusted source to the identity source module. Can be used to implement a callback interface
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+        - name: dataset
+          in: formData
+          description: The data set to add
+          required: true
+          type: string #B64  $ref: '#/definitions/dataSet'
+      responses:
+        200:
+          description: "Identity Dataset received"
+        404:
+          description: "Error receiving identity dataset"
+
 
 
 ####### Persistence #######
@@ -2615,6 +2674,7 @@ definitions:
 
   MngrSessionTO:
     type: object
+    required: [sessionId]
     properties:
       sessionId:
         type: string
@@ -2727,6 +2787,7 @@ definitions:
   entityMetadata:
     description: Information about the an external entity
     type: object
+    required: [entityId]
     properties:
       entityId:
         description: Unique identifier of the entity, usually a metadata url
@@ -2937,7 +2998,6 @@ definitions:
         example: "2018-12-06T19:45:16Z"
       status:
         description: "To represent the tatus of the set (ok, error, etc.)."
-        #required: false # SYNTAX ERROR
         $ref: '#/definitions/attributeSetStatus'
       attributes:
         description: The list of the attributes or claims related to the user, contained on the set
@@ -2964,12 +3024,10 @@ definitions:
       subcode:
         description: free text field to represent status codes, open for specific applications or fluxes.
         type: string
-        #required: false # SYNTAX ERROR
       message:
         description: a free text string to provide human-readable status-error information
         type: string
-        #required: false # SYNTAX ERROR
-            
+
             
             
   attributeSetList:
@@ -2980,19 +3038,40 @@ definitions:
 
         
   attributeMap:
-    description: Represent relatioonships between attributes in two attribute profiles. i.e. eduPerson.givenName <-> eIDAS
+    description: Represent semantic equivalence relationships between attribute groups. Groups can be either single attributes or formed by regexp transformation (match and replace) of the result of concatenation of attributes and literal strings.
     type: object
     properties:
-      keyProfile:
+      description:
+        description: Name or explain the mapping
         type: string
-        description: Name of the attribute profile specified in the keys
-      valueProfile:
-        type: string
-        description: Name of the attribute profile specified in the values
-      mappings:
-        type: object
-        additionalProperties:
-          type: string
+      pairings:
+        description: A list of groups that are semantically equivalent
+        type: array
+        items:
+          type: object
+          properties:
+            profile:
+              description: Attribute profile which this group belongs to
+              example: eIDAS
+              type: string
+            issuer:
+              description: ID of the entity that emmitted the attributes on this group. If specified, this equivalence will only apply to attributes coming from the correspondign issuer
+              example: http://clave.redsara.es/
+              type: string
+            attributes:
+              description: Array of attribute names (can be a single one) and/or string literals that will concatenate to form the group. Items starting with $ will be considered as attribute names, and will be substitutied by its value. Literal strings starting with $ must escape it "\$"
+              example:  ["$surname1","#","$surname2"]
+              type: array
+              items:
+                type: string
+            regexp:
+              description: If set, the result of the concatenation will be matched towards this PERL compatible regexp (no match will return an empty string). Can be used to transform or to ensure a given format.
+              example: "^(-,a-zA-Z)+#(-,a-zA-Z)+$"
+              type: string
+            replace:
+              description: If set, this is what will be returned after matching the regexp. Sub-match numeric placeholders can be used as in a PERL compatible regexp.
+              example: \1 \2
+              type: string 
             
     
   attributeMapList:
@@ -3063,6 +3142,11 @@ definitions:
       type:
         description: To define different kinds of datasets, to establish classifications
         type: string
+      categories:
+        description: To define multiple classes where the data set can be grouped.
+        type: array
+        items:
+          type: string
       issuerId:
         description: Name of the attribute that is the ID of the entity that issued the data set, a kind of pointer to the property ID.
         type: string
@@ -3098,28 +3182,25 @@ definitions:
     type: object
     description: Represents a clear, encrypted and/or signed data set.
     properties:
-      clearData:
-        type: array
-        description: If the data store is in cleartext, this will be set
-        required: false
-        items: 
-          $ref: '#/definitions/dataSet'
+
       encryptedData:
         type: string
         description: If the data store is encrypted, this will be set. B64 string
-        required: false
       signature:
         type: string
         description: If the data store is signed, signature goes here. B64 string. Sign always the decrypted dataset.
-        required: false
       signatureAlgorithm:
         type: string
         description: Descriptor of the signature algorithm used.
-        required: false
       encryptionAlgorithm:
-        type: string
         description: Descriptor of the encryption algorithm used.
-        required: false
+        type: string
+      clearData:
+        description: If the data store is in cleartext, this will be set
+        type: array
+        items: 
+          $ref: '#/definitions/dataSet'
+
 
 
     
