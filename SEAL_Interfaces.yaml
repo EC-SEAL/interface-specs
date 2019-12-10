@@ -1488,25 +1488,26 @@ paths:
           description: "Request not authorised"
   
   
-  /is/load:
+  /is/load/{sessionToken}:
     post:
       tags:
         - IdentitySource
       summary: Passively provide trusted identity data from a trusted source to the identity source module. Can be used to implement a callback interface
       description: _
       consumes:
-      - "application/x-www-form-urlencoded"
+        - "application/json"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
+        - name: "sessionToken"
+          in: "path"
+          description: The session token 
           required: true
           type: string
         - name: dataset
-          in: formData
+          in: body
           description: The data set to add
           required: true
-          type: string #B64  $ref: '#/definitions/dataSet'
+          schema:
+            $ref: '#/definitions/dataSet'
       responses:
         200:
           description: "Identity Dataset received"
