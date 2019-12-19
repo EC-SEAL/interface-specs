@@ -1152,7 +1152,7 @@ paths:
 ####### APIGatewaySP #######
 
 
-  /sp/list/{collection}:
+  /spcl/list/{collection}:
     get:
       tags:
         - APIGatewaySP
@@ -1174,7 +1174,7 @@ paths:
           description: "Collection not found"
           
           
-  /sp/session/start:
+  /spcl/session/start:
     get:
       tags:
         - APIGatewaySP
@@ -1194,7 +1194,7 @@ paths:
           description: "Session start error"
 
           
-  /sp/session/end:
+  /spcl/session/end:
     get:
       tags:
         - APIGatewaySP
@@ -1212,7 +1212,7 @@ paths:
           description: "Session end error"
           
 
-  /sp/auth/{moduleID}/login:
+  /spcl/auth/{moduleID}/login:
     get:
       tags:
         - APIGatewaySP
@@ -1238,7 +1238,7 @@ paths:
           description: "Error accessing module"
           
 
-  /sp/persistence/{moduleID}/load:
+  /spcl/persistence/{moduleID}/load:
     get:
       tags:
         - APIGatewaySP
@@ -1264,7 +1264,7 @@ paths:
           description: "Error accessing module"
 
           
-  /sp/ident/mgr/return:
+  /spcl/ident/mgr/return:
     get:
       tags:
         - APIGatewaySP
