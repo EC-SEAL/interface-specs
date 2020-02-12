@@ -1010,7 +1010,7 @@ paths:
       produces:
         - "application/json"
       consumes:
-        - "multipart/form-data"
+        - "application/x-www-form-urlencoded"
       parameters:
         - name: "sessionID"
           in: "query"
@@ -1027,6 +1027,7 @@ paths:
         - name: "file"  
           in: "formData"
           required: true
+          description: b64 encoded file
           type: file
       responses:
         200:
@@ -1845,7 +1846,7 @@ paths:
         200:
           description: "Incoming status"
           schema:
-            $ref: "#/definitions/linkRequest"
+            $ref: "#/definitions/statusResponse"
         404:
           description: "Error requesting status"
   
@@ -1897,7 +1898,7 @@ paths:
           in: "formData"
           required: true
           type: string
-          format: base64
+          description: base64 encoded file
       responses:
         200:
           description: "File uploaded"
@@ -3393,6 +3394,22 @@ definitions:
       $ref: '#/definitions/message'
 
 
+
+  statusResponse:
+    primaryCode:
+      description: main status code of a link request
+      type: string
+      enum:
+        - PENDING
+        - LOCKED
+        - ACCEPTED
+        - REJECTED
+    secondaryCode:
+      type: string
+      description: Optional field for module specific status codes
+    message:
+      type: string
+      description: Any message that might be of use to understand the status
 
             
 ####### IDBootstrapping #######
