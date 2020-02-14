@@ -1027,8 +1027,8 @@ paths:
         - name: "file"  
           in: "formData"
           required: true
-          description: b64 encoded file
-          type: file
+          description: uploaded file
+          $ref: '#/definitions/fileObject'
       responses:
         200:
           description: "Module access trigger"
@@ -1671,12 +1671,6 @@ paths:
           description: The security token for ms to ms calls
           required: true
           type: string
-        - name: "authenticationSet"
-          in: "cookie"
-          description: A standard response object containing the attributes retrieved from the user authentication on SEAL, if any.
-          required: false
-          schema:
-            $ref: "#/definitions/attributeSet"
       responses:
         200:
           description: "Identity generated"
@@ -1823,21 +1817,14 @@ paths:
                     
           
   /link/{requestId}/status:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Check the status of a link request.
       description: _
-      consumes:
-      - "application/x-www-form-urlencoded"
       produces:
         - "application/json"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"  
           in: "path"
           type: string
@@ -1885,11 +1872,6 @@ paths:
       consumes:
       - "application/x-www-form-urlencoded"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           type: string
@@ -1897,8 +1879,8 @@ paths:
         - name: "file"  
           in: "formData"
           required: true
-          type: string
-          description: base64 encoded file
+          description: the JSON object containing the uploaded file
+          $ref: '#/definitions/fileObject'
       responses:
         200:
           description: "File uploaded"
@@ -1915,11 +1897,6 @@ paths:
       consumes:
         - "application/x-www-form-urlencoded"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"  
           in: "path"
           required: true
@@ -1953,11 +1930,6 @@ paths:
       consumes:
         - "application/x-www-form-urlencoded"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"  
           in: "path"
           required: true
@@ -1969,6 +1941,28 @@ paths:
             $ref: "#/definitions/conversation"
         404:
           description: "Error fetching messages"
+          
+          
+  /link/{requestId}/get:
+    get:
+      tags:
+        - IDLinking
+      summary: Receive a link request to be treated.
+      description: _
+      produces:
+        - "application/json"
+      parameters:
+¡        - name: "requestId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Incoming request"
+          schema: #Request will now have the resolution field filled in
+            $ref: "#/definitions/linkRequest"
+        404:
+          description: "Error fetching messages"          
           
           
   /link/{requestId}/result/get:
@@ -1993,27 +1987,22 @@ paths:
           type: string
       responses:
         200:
-          description: "Incoming messages"
+          description: "Incoming result"
           schema: #Request will now have the resolution field filled in
             $ref: "#/definitions/linkRequest"
         404:
           description: "Error fetching messages"
           
+
+#API for validator clients. We assume the user is authenticated and this will be chekced inside the implememntation, as well as its clearance to do the operations
           
   /link/{requestId}/lock:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Reserve exclusive access to a link request. Should have a timeout by default
       description: _
-      consumes:
-        - "application/x-www-form-urlencoded"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           required: true
@@ -2026,19 +2015,12 @@ paths:
 
           
   /link/{requestId}/unlock:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Release exclusive access to a link request.
       description: _
-      consumes:
-        - "application/x-www-form-urlencoded"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           required: true
@@ -2051,24 +2033,22 @@ paths:
           
           
   /link/{requestId}/get:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Get a link request.
       description: _
-      consumes:
-        - "application/x-www-form-urlencoded"
       produces:
         - "application/json"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           required: true
+          type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
           type: string
       responses:
         200:
@@ -2079,22 +2059,20 @@ paths:
           description: "Error getting request"
 
   /link/{requestId}/approve:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Approve a locked link request.
       description: _
-      consumes:
-        - "application/x-www-form-urlencoded"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           required: true
+          type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
           type: string
       responses:
         200:
@@ -2104,22 +2082,20 @@ paths:
           
           
   /link/{requestId}/reject:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Reject a locked link request.
       description: _
-      consumes:
-        - "application/x-www-form-urlencoded"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           required: true
+          type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
           type: string
       responses:
         200:
@@ -2129,22 +2105,22 @@ paths:
 
 
   /link/{requestId}/files/download/list:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Download the list of files attached to a request.
       description: _
-      consumes:
-        - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           required: true
+          type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
           type: string
       responses:
         200:
@@ -2156,21 +2132,14 @@ paths:
 
 
   /link/{requestId}/files/download/{fileID}:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Download the list of files attached to a request.
       description: _
-      consumes:
-        - "application/x-www-form-urlencoded"
       produces:
-        - "*/*"
+        - "application/json"
       parameters:
-        - name: "msToken"
-          in: "formData"
-          description: The security token for ms to ms calls
-          required: true
-          type: string
         - name: "requestId"
           in: "path"
           required: true
@@ -2179,9 +2148,16 @@ paths:
           in: "path"
           required: true
           type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
+          type: string
       responses:
         200:
           description: "Incoming File"
+          schema:
+            $ref: '#/definitions/fileObject'
         404:
           description: "Error getting request"
 
@@ -2543,6 +2519,8 @@ paths:
       responses:
         200:
           description: "Incoming File"
+          schema:
+            $ref: '#/definitions/fileObject'
         404:
           description: "Error getting request"
  
