@@ -1829,6 +1829,11 @@ paths:
           in: "path"
           type: string
           required: true
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
+          type: string
       responses:
         200:
           description: "Incoming status"
@@ -1881,6 +1886,11 @@ paths:
           required: true
           description: the JSON object containing the uploaded file
           $ref: '#/definitions/fileObject'
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
+          type: string
       responses:
         200:
           description: "File uploaded"
@@ -1912,6 +1922,11 @@ paths:
           in: "formData"
           required: true
           type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
+          type: string
       responses:
         200:
           description: "Message sent"
@@ -1933,6 +1948,11 @@ paths:
         - name: "requestId"  
           in: "path"
           required: true
+          type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
           type: string
       responses:
         200:
@@ -1986,6 +2006,11 @@ paths:
           in: "path"
           required: true
           type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
+          type: string
       responses:
         200:
           description: "Request locked"
@@ -2003,6 +2028,11 @@ paths:
         - name: "requestId"
           in: "path"
           required: true
+          type: string
+        - name: "sessionToken"
+          in: "query"
+          description: if the module requires some kind of authorisation and officer identification
+          required: false
           type: string
       responses:
         200:
