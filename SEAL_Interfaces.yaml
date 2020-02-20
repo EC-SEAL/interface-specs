@@ -2655,7 +2655,29 @@ paths:
           description: "VC issued and stored in wallet"
         404:
           description: "Error generating VC"
-
+          
+          
+  /vc/didAuth:
+    post:
+      tags:
+        - VerifiableClaimIssuing
+      summary: Challenge a wallet to be recognised as the owner of some DID
+      description: _
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+        - name: "msToken"
+          in: "formData"
+          description: The security token for ms to ms calls
+          required: true
+          type: string
+      responses:
+        200:
+          description: "DID authentication successful"
+        403:
+          description: "DID authentication failed"
+        404:
+          description: "Error doing DID authentication"
 
 #  /vcissuing/revoke:  # TODO
 
