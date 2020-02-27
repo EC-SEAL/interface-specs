@@ -1935,7 +1935,7 @@ paths:
           
 
   /link/{requestId}/messages/receive:
-    post:
+    get:
       tags:
         - IDLinking
       summary: Receive messages from a conversation in the context of a link request.
