@@ -3368,28 +3368,12 @@ definitions:
         description: Maximum validity date of the link (empty means permanent)
         type: string
         example: "2018-12-06T19:45:16Z"
-      aAttributes:
-        description: The list of the identity attributes or claims contained on the set A
-        type: array
-        items:
-            $ref: '#/definitions/attributeType'
-      aProperties:
-        description: Dictionary of additional fields of data related to the attributes in the set A(strings only) for any specific purpose.
-        type: object
-        #Indicates free-form object
-        additionalProperties:
-            type: string
-      bAttributes:
-        description: The list of the identity attributes or claims contained on the set B
-        type: array
-        items:
-            $ref: '#/definitions/attributeType'
-      bProperties:
-        description: Dictionary of additional fields of data related to the attributes in the set B(strings only) for any specific purpose.
-        type: object
-        #Indicates free-form object
-        additionalProperties:
-            type: string
+      datasetA:
+        description: The dataset containing identity attributes or claims set A
+        $ref: '#/definitions/dataSet'
+      datasetB:
+        description: The dataset containing identity attributes or claims set B
+        $ref: '#/definitions/dataSet'
       evidence:
         type: array
         description: List of additional files uploaded to the validator to check the person behind the identities
