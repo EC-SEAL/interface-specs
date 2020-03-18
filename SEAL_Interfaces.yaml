@@ -3345,18 +3345,6 @@ definitions:
       issuer:
         description: Name of the entity that issued the link.
         type: string
-      aSubjectId:
-        description: Attribute name in list which is the unique identifier in domain A
-        type: string
-      aSubjectIssuer:
-        description: Identifier of the entity that issued subject A (the collision domain of the ID)
-        type: string
-      bSubjectId:
-        description: Attribute name in list which is the unique identifier in domain B
-        type: string
-      bSubjectIssuer:
-        description: Identifier of the entity that issued subject B (the collision domain of the ID)
-        type: string
       lloa: 
         description: Level of certainty that both subjects are the same person
         type: string
