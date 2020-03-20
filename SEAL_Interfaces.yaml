@@ -1989,8 +1989,10 @@ paths:
           description: "Incoming result"
           schema: #Request will now have the resolution field filled in
             $ref: "#/definitions/linkRequest"
+        403:
+          description: "Link was rejected"
         404:
-          description: "Error fetching messages"
+          description: "Error fetching result"
           
 
 #API for validator clients. We assume the user is authenticated and this will be chekced inside the implememntation, as well as its clearance to do the operations
