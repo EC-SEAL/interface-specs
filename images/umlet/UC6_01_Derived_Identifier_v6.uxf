@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>90</x>
+      <y>0</y>
+      <w>54</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Student</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1179</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1290.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>306</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Dashboard 
+- Web App
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>423</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>API
+GW
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>540</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Derivation
+(UUID)
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>657</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>SM
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>693</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1188</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1197</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1188</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1188</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>144</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User selects Identity Derivation</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>288</y>
+      <w>234</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/ident/derivation/{moduleID}/generate
+(sessionID)</panel_attributes>
+    <additional_attributes>190.0;20.0;60.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>225</x>
+      <y>540</y>
+      <w>378</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(moduleTrigger{access: HTTP-GET, 'DerivationURI', msToken})</panel_attributes>
+    <additional_attributes>140.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>486</x>
+      <y>864</y>
+      <w>198</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Generate UUID4 &amp; add 
+sealUUID to dataSet/dataStore
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>729</x>
+      <y>873</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>UUID dataSet is 
+added to the dataStore
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>243</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+user selects UUID</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>1116</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Redirect to ClientCallbackAddr
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>783</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData
+(sessionId)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>810</y>
+      <w>324</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId, sessionVariables, dataStore, 
+authenticationSet, ClientCallbackAddr, derivation:UUID)</panel_attributes>
+    <additional_attributes>110.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>171</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/list/{´DERIVATION´} </panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>531</x>
+      <y>297</y>
+      <w>153</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>ModuleID = UUID
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>531</x>
+      <y>252</y>
+      <w>153</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>User selects SEAL UUID
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>279</x>
+      <y>1161</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Show the dashboard
+menu
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>99</x>
+      <y>108</y>
+      <w>675</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>User previously accesses service, starts a session and loaded the Personal Data Store (PDS).
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>531</x>
+      <y>171</y>
+      <w>153</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>moduleID:
+- UUID
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>198</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+({UUID4, msInstance})</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>693</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/idboot/generate
+(msToken)
+fg=black
+</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>396</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData (sessionId)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>423</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId, sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>441</x>
+      <y>468</y>
+      <w>297</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, derivation:UUID, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>290.0;20.0;30.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>504</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>315</x>
+      <y>585</y>
+      <w>198</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/callback/
+(sessionId, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>170.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>612</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>648</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>666</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>378</x>
+      <y>333</y>
+      <w>180</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Check the user has been 
+authenticated 
+authenticationSet != Null
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>99</x>
+      <y>342</y>
+      <w>243</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>If user was not previously authneticated 
+a 401 Unauthorized Error is returned to 
+the dashboard, ad the dashboard should 
+indicate that the uer should authenticate 
+to one of the authentication modules 
+displayed to the user from AUTHSOURCE.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>711</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken
+(msToken)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>738</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionID</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>486</x>
+      <y>927</y>
+      <w>198</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Identify dataSet for the 
+authenticationSet and create
+a new linked identity dataSetrequest
+with the sealUUID dataSet. 
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>1026</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, dataStore)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>1062</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>729</x>
+      <y>945</y>
+      <w>153</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Linked Id dataSet is 
+added to the dataStore
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>342</x>
+      <y>1035</y>
+      <w>216</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>dataStore updated with new derived
+UUID dataSet and its linked dataSet
+with the previously authenticated Id 
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

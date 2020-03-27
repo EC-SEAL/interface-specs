@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>168</x>
+      <y>152</y>
+      <w>80</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Relying Party
+(SP)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>192</y>
+      <w>24</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>272</x>
+      <y>152</y>
+      <w>80</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Browser UA</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>192</y>
+      <w>24</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>536</x>
+      <y>152</y>
+      <w>80</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>VC Verifier  
+ms
+bg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>192</y>
+      <w>24</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>224</y>
+      <w>128</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Student 
+e-Service</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>248</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Attribute Request 
+(eduGAIN + callbackURL)</panel_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>568</y>
+      <w>176</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Attribute Response
+(eduGAIN Assertions)
+</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>376</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+DID Authn Req
+(QRcode) </panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>472</x>
+      <y>208</y>
+      <w>232</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>SEAL
+
+bg=orange
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>712</x>
+      <y>152</y>
+      <w>80</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>SSI
+Wallet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>192</y>
+      <w>24</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>400</x>
+      <y>448</y>
+      <w>160</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>eduGAIN VC is requested as
+corresponding to the eduGAIN 
+attributes detected in the 
+SP Request.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>712</x>
+      <y>504</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>User allows 
+the VC query
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>408</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+DID Authn Challenge
+</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>432</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+DID Authn Response
+</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>408</y>
+      <w>208</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User enters PWD</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>760</x>
+      <y>416</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Successfully 
+authenticated
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>456</y>
+      <w>200</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+VC Query
+(eduGAIN VCs requested)
+</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>544</y>
+      <w>200</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+VC Response
+(eduGAIN VCs)
+</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>488</x>
+      <y>288</y>
+      <w>192</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Display Service Provider request
+       1. eduGAIN attributes 
+
+Display SSI Wallet QR Code to scan 
+the request from the SSI Wallet App
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>88</x>
+      <y>120</y>
+      <w>48</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Student</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>192</y>
+      <w>24</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>200</y>
+      <w>224</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Student selects SSI Wallet
+to access the service </panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>384</x>
+      <y>152</y>
+      <w>80</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>ESMO 
+GW
+(SAML / OIDC)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>192</y>
+      <w>24</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>256</y>
+      <w>176</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Attribute Request 
+(eduGAIN)</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>584</y>
+      <w>240</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Redirect Attribute Response
+(Assertions)
+</panel_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>768</x>
+      <y>320</y>
+      <w>88</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>816</x>
+      <y>328</y>
+      <w>32</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>824</x>
+      <y>336</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>bg=white
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>776</x>
+      <y>328</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>816</x>
+      <y>384</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>776</x>
+      <y>368</y>
+      <w>32</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>784</x>
+      <y>376</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>bg=white
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>792</x>
+      <y>328</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>832</x>
+      <y>368</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>784</x>
+      <y>344</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

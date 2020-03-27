@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Student</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1360</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1340.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>260</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Dashboard 
+- Web App
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>390</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>API
+GW
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>520</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>IDLinking
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>650</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SM
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>770</x>
+      <y>30</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>3rd party 
+XYZ manual 
+IDlinking service
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1360</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1360</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1370</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1370</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1370</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>180</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User selects Identity Linking</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>480</y>
+      <w>320</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/ident/linking/{moduleID}/request
+(sessionID, moduleID, datasetIDa , datasetIDb)</panel_attributes>
+    <additional_attributes>220.0;20.0;90.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>670</y>
+      <w>440</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(moduleTrigger{access: HTTP-GET, 'ManualXYZlinkURI', msToken})</panel_attributes>
+    <additional_attributes>150.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>720</x>
+      <y>1220</y>
+      <w>240</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Linked Id is added to the dataStore
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>350</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User 3rd Party XYZ matching service</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>810</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Redirect to ClientCallbackAddr
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>740</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData
+(sessionId)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>770</y>
+      <w>320</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId, sessionVariables, dataStore, request)</panel_attributes>
+    <additional_attributes>90.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>210</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/list/{´LINKING´} </panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>600</x>
+      <y>480</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ModuleID = manualXYZ
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>70</x>
+      <y>390</y>
+      <w>200</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>User selects manual XYZ 
+matching on the Web app.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>230</x>
+      <y>1380</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Show the 
+linked dataSet
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>20</x>
+      <y>120</y>
+      <w>860</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>User previously accesses service, starts a session and loaded the Personal Data Store (PDS).
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>580</x>
+      <y>210</y>
+      <w>110</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>moduleID (tbd):
+- autoSEAL
+- manualXYZ
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>240</y>
+      <w>340</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+({autoSEAL, msInstance}, {manualXYZ,msInstance})</panel_attributes>
+    <additional_attributes>100.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>710</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/link/request/submit
+(msToken)
+</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>520</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData (sessionId)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>550</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId, sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>600</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, request, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>630</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>460</x>
+      <y>840</y>
+      <w>200</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Request Id is stored in 
+browser Cookie to later identify 
+a linked identity response 
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1210</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, dataStore)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1250</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>370</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/callback/
+(sessionId, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>170.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>450</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>400</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>430</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>1190</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/link/{requestId}/result
+(sessionId)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>1320</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId, dataSet</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>470</x>
+      <y>910</y>
+      <w>470</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Manual XYZ IDLinking Service receives linking request &amp; returns result
+bg=yellow
+  </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>240</x>
+      <y>300</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>User selects two 
+identities to be linked
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>1280</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID)
+</panel_attributes>
+    <additional_attributes>150.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1310</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>910</y>
+      <w>450</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Possibly takes place with user interaction / presence</panel_attributes>
+    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>1060</y>
+      <w>300</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/ident/linking/{moduleID}/{requestId}/result
+(sessionID)</panel_attributes>
+    <additional_attributes>210.0;20.0;80.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>220</x>
+      <y>850</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Show main 
+dashboard menu
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>890</x>
+      <y>0</y>
+      <w>60</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>XYZ
+Admin</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>110</y>
+      <w>30</w>
+      <h>1330</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1080</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, request, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1110</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>1140</y>
+      <w>440</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(moduleTrigger{access: HTTP-GET, 'ManualXYZlinkURI', msToken})</panel_attributes>
+    <additional_attributes>150.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>610</x>
+      <y>1050</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>moduleID manualXYZ
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>220</x>
+      <y>970</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>User selects to view
+link reuests (cookie or client) 
+&amp; fetch an identity link result
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>970</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>10</x>
+      <y>740</y>
+      <w>280</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Possible improvement:
+
+Instead of storing requestID as a cookie
+it can be returned in ClientCallbackAddr 
+and stored in the dashboard
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>90</x>
+      <y>0</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Relying Party
+(SP)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>30</y>
+      <w>30</w>
+      <h>1440</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1420.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>220</x>
+      <y>0</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Browser UA</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>30</y>
+      <w>30</w>
+      <h>1440</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>30</y>
+      <w>30</w>
+      <h>1440</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1420.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>340</x>
+      <y>0</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>SPService ms
+(eIDAS Auth EP)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>470</x>
+      <y>0</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>RequestManager 
+ms</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>30</y>
+      <w>30</w>
+      <h>1440</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1420.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>610</x>
+      <y>0</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>idp-eidas 
+ms</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>30</y>
+      <w>30</w>
+      <h>1440</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1420.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>720</x>
+      <y>0</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Session 
+Manager ms</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>30</y>
+      <w>30</w>
+      <h>1440</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>50</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Student 
+e-Service</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>80</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Attribute Request 
+eIDAS MDS  + callbackURL</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>230</x>
+      <y>730</y>
+      <w>720</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>User Authentication
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>760</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Authentication Response
+MDS Assertion
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>690</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+AuthN Request</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>340</x>
+      <y>50</y>
+      <w>510</w>
+      <h>1360</h>
+    </coordinates>
+    <panel_attributes>SEAL
+
+bg=orange
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>250</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/rm/request
+(msToken)
+</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>870</x>
+      <y>0</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>eIDAS
+(IdP)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>30</y>
+      <w>30</w>
+      <h>1440</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>100</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+sm/startSession</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>120</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+OK, sessionId</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>150</y>
+      <w>400</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+/sm/updateSessionData
+(sessionId, spRequest, spMetadata, spRequestEP)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>210</y>
+      <w>400</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID, SP, RM)
+</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>230</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>320</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+   getSessionData(sessionId)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>340</y>
+      <w>330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+(sessionId, spRequest, spMetadata, spRequestEP)</panel_attributes>
+    <additional_attributes>40.0;20.0;280.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>430</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID, RM, IdP)
+</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>450</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>560</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+   getSessionData(sessionID)</panel_attributes>
+    <additional_attributes>150.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>970</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID)
+</panel_attributes>
+    <additional_attributes>140.0;20.0;30.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>990</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1240</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID)
+</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1260</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1270</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/sp/response
+(msToken)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1300</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+getSessionData(sessionId)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1370</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+deleteSession(token, Session)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>1350</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Authentication Response
+MDS Assertion
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>180</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+OK, sessionId</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>400</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>370</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, idpRequest, idpMetadata,ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>300.0;20.0;60.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>490</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/as/authenticate
+(msToken)
+</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>580</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(idpRequest, idpMetadata)</panel_attributes>
+    <additional_attributes>30.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1010</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+rm/response
+(msToken)
+
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>800</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+   getSession(eidas-session)</panel_attributes>
+    <additional_attributes>150.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>820</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+OK, sessionId</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>850</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+   getSessionData(sessionID)</panel_attributes>
+    <additional_attributes>150.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>870</y>
+      <w>320</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(idpRequest, idpMetadata, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>100.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>910</y>
+      <w>260</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, dsResponse, dsMetadata)</panel_attributes>
+    <additional_attributes>180.0;20.0;70.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>940</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1050</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken
+(msToken)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1070</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionID</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1110</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData
+(sessionId)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1140</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(dsResponse, dsMetadata)</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1180</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, responseAssertions)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>1210</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1320</y>
+      <w>400</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(responseAssertions)</panel_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>780</x>
+      <y>410</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>ClientCallbackAddr 
+stored in SM
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>290</x>
+      <y>990</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Use redirect endpoint from 
+ClientCallbackAddr stored in SM
+that uses the rm/response
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>260</x>
+      <y>1060</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>No need for Request manager GUI
+as only the eIDAS attributes were
+requested and these were obtained
+from live authentication.
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>660</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>630</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, eidas-session)</panel_attributes>
+    <additional_attributes>140.0;20.0;30.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>810</x>
+      <y>630</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Stores eIDAS call reference to 
+find session after eIDAS AuthN.
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>500</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken
+(msToken)</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>520</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionID</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>260</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken
+(msToken)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>280</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionID</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>190</x>
+      <y>420</y>
+      <w>300</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>In this case, the SP ms received a request 
+with spRequestEP set to eidasAuth, so the
+RM prepares an idpRequest.
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>20</x>
+      <y>140</y>
+      <w>310</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>The SP Request recieved by the SEAL SP ms 
+from an SP are towards specific end points  
+as follows upon reception: 
+- eidasAuth
+- edugainAuth
+- PDS
+- uportSSIwallet 
+
+The SP ms writes this in variable "spRequestEP"
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>670</x>
+      <y>60</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Attribute Request received at the 
+eIDAS End Point, from the SP
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

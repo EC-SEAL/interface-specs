@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>90</y>
+      <w>30</w>
+      <h>1160</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1150</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>280</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Dashboard 
+- Mobile App
+/ Web App
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>410</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>API
+GW
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1160</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>540</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Persistence
+(googleDrive)
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1160</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>90</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Open App</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>40</x>
+      <y>0</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Student</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>670</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SM
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1160</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>800</x>
+      <y>30</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Personal
+Data Store
+(Google drive)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>80</y>
+      <w>30</w>
+      <h>1160</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>130</x>
+      <y>520</y>
+      <w>300</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>API GW obtains the module Trigger details 
+from the persistence and microservices
+json config files previously loaded from the CM
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>530</x>
+      <y>960</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Request user 
+pwd to decrypt data
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>530</x>
+      <y>890</y>
+      <w>420</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Redirect to Personal Datastore in cloud to store SEAL datastore.
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>260</x>
+      <y>1160</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Show complete 
+Dashboard menu
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>710</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/per/load
+(msToken)
+</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>520</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/generateToken 
+(sessionId, CL, Persistence)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>550</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(msToken)</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>740</x>
+      <y>770</y>
+      <w>310</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Dashboard App can use WebView for android. 
+User is sent to Persistence module and 
+redirected to Google Drive and is authentcated 
+and PDS is retrieved.
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>730</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken 
+(msToken)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>760</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>670</y>
+      <w>460</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(moduleTrigger{access: HTTP-POST, 'PersistenceURLms', msToken})</panel_attributes>
+    <additional_attributes>160.0;20.0;290.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>650</x>
+      <y>680</y>
+      <w>390</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>The API GW returns msToken and moduleTrigger to client 
+with details of how to connect to the persistence module.
+
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>750</x>
+      <y>580</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Store call specific data to SM
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>490</x>
+      <y>1020</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Validate PDS signature 
+and show success message &amp; 
+redirect user to dashboard
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>960</y>
+      <w>490</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+PWD</panel_attributes>
+    <additional_attributes>470.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>470</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/persistence/{moduleID}/load
+(sessionId)</panel_attributes>
+    <additional_attributes>170.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>520</x>
+      <y>480</y>
+      <w>310</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>moduleID was stored in settings as googleDrive
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>370</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/callback/
+(sessionId, clientCallbackAddr)</panel_attributes>
+    <additional_attributes>170.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>390</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>420</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>440</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>600</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, sessionVariables, PDS:GoogleDrive)</panel_attributes>
+    <additional_attributes>280.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>640</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>840</y>
+      <w>330</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(PDS:GoogleDrive,ClientCallbackAddr, dataStore)</panel_attributes>
+    <additional_attributes>100.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>810</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData
+(sessionId)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>1120</y>
+      <w>290</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Redirect to ClientCallbackAddr
+
+
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>40</x>
+      <y>130</y>
+      <w>850</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>User  accesses service for first time, performs DID Auth and starts a session (No PDS detected).
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>180</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User selects to configure datastore
+in settings</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>210</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/list/{´PERSISTENCE´} </panel_attributes>
+    <additional_attributes>150.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>230</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+({localMobile, msInstance}, {localBrowser,msInstance}, 
+{oneDrive, msInstance}, {googleDrive,msInstance})</panel_attributes>
+    <additional_attributes>110.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>350</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+user selects to configure 
+and load google drive datastore</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>730</x>
+      <y>240</y>
+      <w>110</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>moduleID:
+- localMobile
+- localBrowser
+- googleDrive
+- WebDAV
+- oneDrive 
+- etc
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>750</x>
+      <y>620</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>PDS set as googleDrive
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>210</x>
+      <y>290</y>
+      <w>230</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>User is given option to:
+1) Configure and load existing PDS
+2) Configure and cretae a new PDS
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>740</x>
+      <y>970</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>dataStore is decrypted and 
+signature is validated
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>1110</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>1070</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>740</x>
+      <y>1030</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>load PDS into dataStore
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

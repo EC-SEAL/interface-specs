@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Relying Party
+(SP)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>130</x>
+      <y>0</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Browser UA</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>250</x>
+      <y>0</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SPService ms
+(eIDAS Auth EP)
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>380</x>
+      <y>0</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>RequestManager 
+ms
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>520</x>
+      <y>0</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Persistence
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>630</x>
+      <y>0</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Session 
+Manager ms
+bg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>80</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Student 
+e-Service</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>10</x>
+      <y>110</y>
+      <w>350</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Attribute Request 
+eIDAS + eduGAIN + ESC + ePassport + callbackURL</panel_attributes>
+    <additional_attributes>300.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>740</x>
+      <y>0</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>API-GW
+bg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1690</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID)
+</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1710</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>1720</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/sp/response
+(msToken)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>1750</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+getSessionData(sessionId)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>1820</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+deleteSession(token, Session)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1340</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+rm/response
+(msToken)
+
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1370</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken
+(msToken)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1400</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionID</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1440</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData
+(sessionId)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1470</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1630</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, responseAssertions)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>1660</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>1770</y>
+      <w>400</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(responseAssertions)</panel_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>380</x>
+      <y>100</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Attribute Request received at the 
+PDS End Point, from the SP
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>250</x>
+      <y>70</y>
+      <w>480</w>
+      <h>1790</h>
+    </coordinates>
+    <panel_attributes>SEAL
+
+bg=orange
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>110</x>
+      <y>730</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>User previously selected the mobile SEAL PDS
+as source to retrieve attributes.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>140</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+sm/startSession</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>160</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+OK, sessionId</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>190</y>
+      <w>400</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+/sm/updateSessionData
+(sessionId, spRequest, spMetadata)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>220</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+OK, sessionId</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>250</y>
+      <w>400</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID, SP, RM)
+</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>270</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>290</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/rm/request
+(msToken)
+</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>300</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken
+(msToken)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>320</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionID</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>360</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+   getSessionData(sessionId)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>380</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+(sessionId, spRequest, spMetadata)</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>340</x>
+      <y>1520</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>User is presented with returned 
+requested attributes values and 
+can deselect any attribute to be 
+returned to the SP.
+The user is requested to confirm 
+to return the attributes to the SP.
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>720</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/per/load
+(msToken)
+</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>740</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken 
+(msToken)</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>770</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK (sessionId)</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>800</y>
+      <w>220</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData (sessionId)</panel_attributes>
+    <additional_attributes>160.0;20.0;50.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>820</y>
+      <w>260</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(PDS:remoteMobile,ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>70.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1190</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>70</x>
+      <y>1070</y>
+      <w>350</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Mobile datastore is loaded in SEAL persistence ms 
+and user is requested to give pwd to decipher it,
+before it being stored in the clear in the SM dataStore
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>710</x>
+      <y>650</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>RM generated msToken &amp; 
+stored ClientCallbackAddr
+
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>180</x>
+      <y>1340</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Note: ClientCallbackAddr contains
+rm/response
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>340</x>
+      <y>550</y>
+      <w>210</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Load existing cookie if any 
+indicating users PDS source 
+e.g. google drive. Otherwise 
+show possible options &amp; confirm 
+the PDS source with user
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>1800</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Attribute Response
+eIDAS + eduGAIN + ePassport assertions
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>190</x>
+      <y>830</y>
+      <w>300</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>PDS:remoteMobile
+Persistence Module sees that the user 
+Personal Data Store is found on the mobile
+
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>650</y>
+      <w>340</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+/sm/updateSessionData
+(sessionId, PDS:remoteMobile, ClientCallbackAddr)</panel_attributes>
+    <additional_attributes>280.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>690</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+OK, sessionId</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>910</x>
+      <y>800</y>
+      <w>110</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>970</x>
+      <y>810</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>980</x>
+      <y>820</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=white
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>920</x>
+      <y>810</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>920</x>
+      <y>860</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>930</x>
+      <y>870</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=white
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>940</x>
+      <y>810</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>930</x>
+      <y>830</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>990</x>
+      <y>860</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>970</x>
+      <y>880</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>620</x>
+      <y>1540</y>
+      <w>300</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>RM will access the spRequest to select &amp; 
+confirm these requested values with the user 
+for the response.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>420</y>
+      <w>280</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>In this case, the SP ms received a request 
+with spRequestEP set to PDS, so the
+RM must query the user´s PDS.
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>580</x>
+      <y>550</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PDS Options:
+1. Mobile
+2. Browser
+3. Google
+etc.
+
+bg=cyan
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>410</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/list/{´PERSISTENCE´} </panel_attributes>
+    <additional_attributes>150.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>430</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+({localMobile, msInstance}, {remoteMobile,msInstance},
+{Browser,msInstance}, {googleDrive,msInstance})</panel_attributes>
+    <additional_attributes>110.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>560</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User confirms the 
+PDS to query</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>340</x>
+      <y>500</y>
+      <w>210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Show attributes requested 
+from the SP to the user´s PDS
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>690</x>
+      <y>580</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>User confirmed a mobile PDS &amp;
+RM denotes this as remoteMobile
+as currently user is on a browser
+
+bg=cyan
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>740</x>
+      <y>1130</y>
+      <w>230</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Datastore signature is validated 
+
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>850</x>
+      <y>1040</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Request user 
+pwd to access data
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>1040</y>
+      <w>830</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+PWD</panel_attributes>
+    <additional_attributes>810.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>870</y>
+      <w>360</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Request PDS with sessionID &amp; QRcallbackURL 
+in QRcode</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>850</x>
+      <y>990</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Get encrypted 
+PDS file
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1080</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/per/load/{´sessionToken´}
+(#pwd, #dataStore)
+</panel_attributes>
+    <additional_attributes>10.0;20.0;340.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>490</x>
+      <y>1110</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Decrypt dataStore &amp;
+check signature
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>1150</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+sm/updateSessionData
+(sessionId, sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>180.0;20.0;70.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1220</y>
+      <w>360</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK (sessionId)</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1250</y>
+      <w>360</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+callbackURL (OK, sessionID)
+
+
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;340.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>940</y>
+      <w>360</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(moduleTrigger{access: HTTP-GET, 'PersistenceURI'})</panel_attributes>
+    <additional_attributes>230.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>920</y>
+      <w>280</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/persistence/{moduleID}/load (sessionId)</panel_attributes>
+    <additional_attributes>80.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>1290</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+generateToken(sessionID)
+</panel_attributes>
+    <additional_attributes>140.0;20.0;30.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>1320</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+OK, msToken</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>850</x>
+      <y>0</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SEAL
+Dashboard
+(Mobile PDS)
+bg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>890</x>
+      <y>50</y>
+      <w>30</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1810.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>700</x>
+      <y>720</y>
+      <w>320</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Note: If the persistence GUI was launched on 
+a mobile browser it is not generated the QRcode &amp; 
+the mobile PDS is queried directly.
+
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

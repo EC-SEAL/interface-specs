@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>20</x>
+      <y>110</y>
+      <w>30</w>
+      <h>790</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;770.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>100</y>
+      <w>30</w>
+      <h>800</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;780.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>240</x>
+      <y>50</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Dashboard 
+- Mobile App
+/ Web App
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>370</x>
+      <y>50</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>API
+GW
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>100</y>
+      <w>30</w>
+      <h>800</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;780.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>500</x>
+      <y>50</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Persistence
+(local)
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>100</y>
+      <w>30</w>
+      <h>800</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;780.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>20</x>
+      <y>140</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Open App</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>220</x>
+      <y>180</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Read settings
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>20</x>
+      <y>480</y>
+      <w>220</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Password</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>0</x>
+      <y>20</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Student</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>630</x>
+      <y>50</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SM
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>100</y>
+      <w>30</w>
+      <h>800</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;780.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>760</x>
+      <y>50</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Personal
+Datastore
+(localMobile)
+
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>380</x>
+      <y>180</y>
+      <w>390</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Read SEAL app / cookie settings for default access method 
+(e.g. DID AuthN) and datastore settings (e.g. localMobile)
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>100</y>
+      <w>30</w>
+      <h>800</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;780.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>590</x>
+      <y>610</y>
+      <w>310</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Request to upload datastore in SEAL sent to 
+specific SEAL persistence module on 
+back-channel, with #pwd &amp; encrypted dataStore
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>220</x>
+      <y>480</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Request user 
+pwd to access data
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>720</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+sm/updateSessionData
+(sessionId, sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>190.0;20.0;60.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>760</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>400</x>
+      <y>830</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>dataStore signature was validated 
+and returns dashboard view 
+to the app. 
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>610</y>
+      <w>290</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/per/load/{´sessionToken´}
+(#pwd, #dataStore)
+</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>490</x>
+      <y>680</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Decrypt dataStore &amp;
+check signature
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>220</x>
+      <y>820</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Return to 
+Dashboard menu
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>780</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId)</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>380</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/persistence/{moduleID}/load
+(sessionId)</panel_attributes>
+    <additional_attributes>170.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>410</y>
+      <w>360</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(moduleTrigger{access: HTTP-GET, 'PersistenceURI'})</panel_attributes>
+    <additional_attributes>110.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>710</x>
+      <y>760</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Unencrypted dataStore is 
+loaded in session data. 
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>480</x>
+      <y>390</y>
+      <w>380</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>moduleID was previously stored in settings as localMobile
+bg=yellow
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>530</y>
+      <w>550</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Get SEAL encrypted Personal Datastore 
+</panel_attributes>
+    <additional_attributes>530.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>560</y>
+      <w>550</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+#datastore 
+</panel_attributes>
+    <additional_attributes>10.0;20.0;530.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>320</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/session/start</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>320</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+sm/startSession </panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>340</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>340</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>190</x>
+      <y>240</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Dashboard detects the 
+user has a local mobile / 
+browser datastore configured
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>700</x>
+      <y>340</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Initialise empty dataStore 
+on SSI access.
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

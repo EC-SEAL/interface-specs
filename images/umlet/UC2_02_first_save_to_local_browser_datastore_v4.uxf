@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>81</x>
+      <y>0</y>
+      <w>54</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Student</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>99</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1323</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1450.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>297</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Dashboard 
+- Web App
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>414</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>API
+GW
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>531</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Persistence
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>648</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>SM
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>765</x>
+      <y>36</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Personal
+Data Store
+(localBrowser)
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>801</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1323</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>684</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1323</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1323</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1323</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>333</x>
+      <y>81</y>
+      <w>27</w>
+      <h>1323</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;1450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>306</x>
+      <y>648</y>
+      <w>198</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/persistence/{moduleID}/store
+(sessionId)</panel_attributes>
+    <additional_attributes>170.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>243</x>
+      <y>810</y>
+      <w>324</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(moduleTrigger{access: HTTP-GET, 'PersistenceURI'})</panel_attributes>
+    <additional_attributes>100.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>99</x>
+      <y>927</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Password</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>261</x>
+      <y>864</y>
+      <w>162</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Request user 
+pwd to encrypt data and 
+store in local browser store
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>333</x>
+      <y>945</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/per/store/{´sessionToken´}
+(#pwd)
+</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>594</x>
+      <y>1089</y>
+      <w>270</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Encrypted dataStore returned in backchannel
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>522</x>
+      <y>1053</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Encrypt dataStore 
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>99</x>
+      <y>612</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+user selects to create 
+local browser PDS</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>333</x>
+      <y>1080</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(dataStore)
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>972</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData
+(sessionId)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>999</y>
+      <w>351</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId, sessionVariables, PDS:localBrowser, dataStore)</panel_attributes>
+    <additional_attributes>130.0;20.0;260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>468</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/list/{´PERSISTENCE´} </panel_attributes>
+    <additional_attributes>150.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>243</x>
+      <y>495</y>
+      <w>324</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+({localMobile, msInstance}, {localBrowser,msInstance}, 
+{oneDrive, msInstance}, {googleDrive,msInstance})</panel_attributes>
+    <additional_attributes>110.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>522</x>
+      <y>648</y>
+      <w>153</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>ModuleID = localBrowser
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>702</x>
+      <y>639</y>
+      <w>117</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Note localBroswer 
+is only supported 
+on the Web app.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>234</x>
+      <y>1134</y>
+      <w>198</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Dashboard app stores encrypted 
+session data store in local browser 
+Personal Data Store
+
+NOTE: If PDS is already existing 
+give a warning that it will be 
+overwritten if the user proceeds, 
+otherwise the user can alternatively 
+load the existing PDS in settings.
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>549</x>
+      <y>927</y>
+      <w>171</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>sessionToken == sessionId
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>234</x>
+      <y>1296</y>
+      <w>198</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>User datastore settings
+are stored in browser 
+dashboard app / cookie.
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>72</x>
+      <y>117</y>
+      <w>765</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>User  accesses service for first time, performs DID Auth and starts a session (No PDS was detected).
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>99</x>
+      <y>1305</y>
+      <w>153</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User confirms
+to save datastore
+ settings</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>585</x>
+      <y>459</y>
+      <w>99</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>moduleID:
+- localMobile
+- localBrowser
+- googleDrive
+- WebDAV
+- oneDrive 
+- etc
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>423</x>
+      <y>1152</y>
+      <w>405</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Store SEAL encrypted Personal Datastore 
+</panel_attributes>
+    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>684</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData (sessionId)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>711</y>
+      <w>252</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId, sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>756</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, PDS:localBrowser)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>792</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>720</x>
+      <y>765</y>
+      <w>144</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Indicate to persistence 
+module that  PDS is 
+localBroswer
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>423</x>
+      <y>1215</y>
+      <w>405</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+</panel_attributes>
+    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>99</x>
+      <y>171</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User selects to Manage identity data</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>333</x>
+      <y>180</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/cl/ident/mgr/list
+(SessionId)</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>189</y>
+      <w>261</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/getSessionData (sessionId)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>216</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK
+(sessionId, sessionVariables, dataStore)</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>243</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK (sessionId, dataStore)</panel_attributes>
+    <additional_attributes>20.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>261</x>
+      <y>279</y>
+      <w>171</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Show identity data 
+loaded in the datastore
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>99</x>
+      <y>324</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User selects to save identity data
+to external personal data store</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>243</x>
+      <y>369</y>
+      <w>207</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>User is informed that no PDS is 
+detected &amp; needs to configure it
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>423</y>
+      <w>252</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User is redirected to the settings 
+to configure a PDS
+</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>234</x>
+      <y>558</y>
+      <w>207</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>User is given option to:
+1) Configure and load existing PDS
+2) Configure and create a new PDS
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

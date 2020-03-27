@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>10</x>
+      <y>0</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Student</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>30</x>
+      <y>90</y>
+      <w>30</w>
+      <h>950</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;930.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>250</x>
+      <y>40</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Web Browser
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>380</x>
+      <y>40</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>VC
+(uport)
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>510</x>
+      <y>40</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>IdP ms
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>640</x>
+      <y>40</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SM
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>770</x>
+      <y>40</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>SSI 
+Wallet
+(uPort)
+
+bg=white
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>90</y>
+      <w>30</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;940.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>90</y>
+      <w>30</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;940.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>90</y>
+      <w>30</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;940.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>90</y>
+      <w>30</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;940.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>90</y>
+      <w>30</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;940.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>180</y>
+      <w>440</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+User is redirected to a specific VC issuing end point (e.g. eIDAS VC)</panel_attributes>
+    <additional_attributes>280.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>40</x>
+      <y>320</y>
+      <w>330</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>ClientcallBackAddr to the vc/{VC_TYPE}/response 
+API. Note this callback address is setup on the 
+spot by the VC ms.
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>0</x>
+      <y>110</y>
+      <w>890</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Previously the user accesses SSI Wallet for a VC Request from an SP, however the user does not have the required VC  and selects a 
+link  inside the wallet to obtain the requested VC. User hits link and is redirected on web page to SEAL VC issuing for that VC.
+
+bg=pink
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>340</y>
+      <w>350</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/updateSessionData
+(sessionId, ClientCallbackAddr, DID, ssiWallet=uPort)</panel_attributes>
+    <additional_attributes>300.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>370</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>470</x>
+      <y>700</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Generate VC and display 
+to user to confirm issue to
+SSI Wallet
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>30</x>
+      <y>710</y>
+      <w>460</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+user confirms eIDAS VC issue to SSI Wallet</panel_attributes>
+    <additional_attributes>440.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>760</y>
+      <w>420</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Issue VC
+(eIDAS VC) </panel_attributes>
+    <additional_attributes>400.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>740</x>
+      <y>820</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Display VC &amp; 
+user confirms
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>30</x>
+      <y>820</y>
+      <w>730</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+user confirms eIDAS VC in the SSI Wallet</panel_attributes>
+    <additional_attributes>710.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>790</y>
+      <w>420</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Ok</panel_attributes>
+    <additional_attributes>10.0;20.0;400.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>280</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+sm/startSession</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>300</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+OK, sessionId</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>400</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+/is/query</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>0</x>
+      <y>450</y>
+      <w>970</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Import eIDAS Identity into SM dataStore as per specified in UC3.02 sequence diagaram.
+bg=pink
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>940</x>
+      <y>90</y>
+      <w>30</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;940.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>900</x>
+      <y>40</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>eIDAS
+bg=white
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>510</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+vc/{VC_TYPE}/response
+(msToken)
+fg=black
+
+
+</panel_attributes>
+    <additional_attributes>20.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>190</y>
+      <w>420</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+DID Authn Req
+(QRcode) </panel_attributes>
+    <additional_attributes>400.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>220</y>
+      <w>420</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+DID Authn Challenge
+</panel_attributes>
+    <additional_attributes>10.0;20.0;400.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>250</y>
+      <w>420</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+DID Authn Response
+</panel_attributes>
+    <additional_attributes>400.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>310</x>
+      <y>220</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Successfully 
+authenticated
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>890</x>
+      <y>190</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>900</x>
+      <y>200</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=white
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>840</x>
+      <y>190</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>890</x>
+      <y>260</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>840</x>
+      <y>240</y>
+      <w>40</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>850</x>
+      <y>250</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=white
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>860</x>
+      <y>190</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>850</x>
+      <y>210</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>910</x>
+      <y>240</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>bg=black
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>830</x>
+      <y>180</y>
+      <w>110</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>
+halign=left
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>780</x>
+      <y>310</y>
+      <w>230</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Note if a mobile was used 
+instead of a web browser no
+QR code is needed to be scanned
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>230</x>
+      <y>860</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>close browser
+
+bg=yellow
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>0</x>
+      <y>930</y>
+      <w>880</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>The user goes back now to this pending VC request in SSI Wallet, and chosses to return the newly issued VC (all these take place inside 
+the wallet app of the user). The flow will then continue at the VC Verifier module if verification was through that module or directly to SP.
+bg=pink
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>550</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+/sm/validateToken
+(msToken)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>580</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+
+OK, sessionID</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>620</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+   getSessionData(sessionID)</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>650</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+OK, sessionId
+(sessionId, ClientCallbackAddr, DID, dataStore, ssiWallet)</panel_attributes>
+    <additional_attributes>50.0;20.0;310.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>730</x>
+      <y>390</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ssiWallet = uPort
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>640</x>
+      <y>510</y>
+      <w>360</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ClientcallBackAddr to the vc/{VC_TYPE}/response API. 
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
