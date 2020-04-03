@@ -1802,7 +1802,7 @@ paths:
           description: The security token for ms to ms calls
           required: true
           type: string
-        - name: "request"  
+        - name: "linkRequest"  
           in: "cookie"
           required: true
           schema:
