@@ -3354,6 +3354,9 @@ definitions:
         description: Date when the link was certified (the date this data set was issued)
         type: string
         example: "2018-12-06T19:40:16Z"
+      type:
+        description: Type of set.
+        type: string
       expiration:
         description: Maximum validity date of the link (empty means permanent)
         type: string
