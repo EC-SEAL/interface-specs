@@ -269,6 +269,170 @@ paths:
       deprecated: false
       
       
+  /sm/store/start:
+    get:
+      tags:
+        - SessionManager
+      summary: Will create an empty dataStore in session, overwriting any pre-existing one.
+      parameters:
+        - name: sessionID
+          in: query
+          description: session identifier
+          required: true
+          type: string
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Error
+      
+      
+      
+      
+  /sm/store/add:
+    post:
+      tags:
+        - SessionManager
+      summary: Add object to dataStore. If id already exists,
+will update.
+      operationId: updateSessionDataUsingPOST
+      consumes:
+        - application/json
+      parameters:
+        - name: sessionID
+          in: query
+          description: session identifier
+          required: true
+          type: string
+        - name: id
+          in: query
+          description: unique and persistent identifier for the object beinjg written, for a given source, issuer and subject
+          required: true
+          type: string
+        - name: type
+          in: query
+          description: object class name
+          required: true
+          type: string
+        - name: dataObject
+          in: body
+          description: the object to be written on the dataStore (will be put inside a storeEntry)
+          required: true
+          type: object
+          additionalProperties: true   #Indicates free-form object
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Error
+      
+
+
+      
+  /sm/store/delete:
+    get:
+      tags:
+        - SessionManager
+      summary: Will delete an object from the dataStore in session.
+      parameters:
+        - name: sessionID
+          in: query
+          description: session identifier
+          required: true
+          type: string
+        - name: id
+          in: query
+          description: identifier of the object to delete
+          required: true
+          type: string
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Error
+      
+          
+
+
+      
+  /sm/store/get:
+    get:
+      tags:
+        - SessionManager
+      summary: Will retrieve an object from the dataStore in session.
+      parameters:
+        - name: sessionID
+          in: query
+          description: session identifier
+          required: true
+          type: string
+        - name: id
+          in: query
+          description: identifier of the object to fetch
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Found
+          schema:
+            $ref: '#/definitions/storeEntry'          
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      
+          
+
+
+  /sm/store/search:
+    get:
+      tags:
+        - SessionManager
+      summary: Will retrieve all objects of a type from the dataStore in session (or all objects if type is not specified).
+      parameters:
+        - name: sessionID
+          in: query
+          description: session identifier
+          required: true
+          type: string
+        - name: type
+          in: query
+          description: object class name
+          required: false
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Found
+          schema:
+            $ref: '#/definitions/storeEntryList'          
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+      
+
+
+      
       
 ####### ConfigManager ########
 
@@ -1174,13 +1338,13 @@ paths:
           required: true
           description: B64 string with the received msToken
           type: string            
+      produces:
+        - application/json
       responses:
-        200:
-          description: "msToken is legitimate"
-        403:
-          description: "msToken is invalid"
-        404:
-          description: "Error validating token"
+        '200':
+          description: Result of the Token validation, sessionID and additional data
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
           
   
 
@@ -1802,7 +1966,7 @@ paths:
           description: The security token for ms to ms calls
           required: true
           type: string
-        - name: "linkRequest"  
+        - name: "request"  
           in: "cookie"
           required: true
           schema:
@@ -3302,10 +3466,34 @@ definitions:
         description: If the data store is in cleartext, this will be set
         type: array
         items: 
-          $ref: '#/definitions/dataSet'
+          $ref: '#/definitions/storeEntry'
 
 
 
+  storeEntry:
+    type: object
+    description: Wrapper object to allow multiple kinds of objects stored on the dataStore.
+    properties:
+      id:
+        description: A unique and persistent identifier for the object, for a given source, issuer and subject
+        type: string
+        example: "eidas-es-0d596c52813a"
+      type:
+        description: The classname of the contained object
+        type: string
+        example: "linkRequest"
+      data:
+        description: The object to be stored. Any object, but mainly dataSet and linkRequest
+        type: object
+        additionalProperties: true   #Indicates free-form object
+    
+ 
+  storeEntryList:
+    type: array
+    items: 
+      $ref: '#/definitions/storeEntry'
+ 
+    
     
 ####### IDLinking #######
 
@@ -3347,6 +3535,9 @@ definitions:
       issuer:
         description: Name of the entity that issued the link.
         type: string
+      type:
+        description: Type of set.
+        type: string
       lloa: 
         description: Level of certainty that both subjects are the same person
         type: string
@@ -3354,9 +3545,6 @@ definitions:
         description: Date when the link was certified (the date this data set was issued)
         type: string
         example: "2018-12-06T19:40:16Z"
-      type:
-        description: Type of set.
-        type: string
       expiration:
         description: Maximum validity date of the link (empty means permanent)
         type: string
@@ -3422,13 +3610,11 @@ definitions:
 
   statusResponse:
     primaryCode:
-      description: main status code of a link request
+      description: generic status description object
       type: string
       enum:
-        - PENDING
-        - LOCKED
-        - ACCEPTED
-        - REJECTED
+        - OK
+        - ERROR
     secondaryCode:
       type: string
       description: Optional field for module specific status codes
@@ -3436,7 +3622,18 @@ definitions:
       type: string
       description: Any message that might be of use to understand the status
 
-            
+
+
+  linkRequestStatus:
+    description: specific status codes of a link request (to be used on the secondaryCode field of statusResponse)
+    type: string
+    enum:
+      - PENDING
+      - LOCKED
+      - ACCEPTED
+      - REJECTED 
+
+           
 ####### IDBootstrapping #######
 ####### APIGatewayLink #######
 ####### VerifiableClaimIssuing #######
