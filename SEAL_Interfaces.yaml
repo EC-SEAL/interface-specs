@@ -297,11 +297,10 @@ paths:
     post:
       tags:
         - SessionManager
-      summary: Add object to dataStore. If id already exists,
-will update.
-      operationId: updateSessionDataUsingPOST
+      summary: Add object to dataStore. If id already exists, will update.
+      operationId: storeAddPOST
       consumes:
-        - application/json
+        - text/plain
       parameters:
         - name: sessionID
           in: query
@@ -320,10 +319,12 @@ will update.
           type: string
         - name: dataObject
           in: body
-          description: the object to be written on the dataStore (will be put inside a storeEntry)
+          description: the object to be written on the dataStore (will be put inside a storeEntry). DEfkined as string because swagger does not accept any object here
           required: true
-          type: object
-          additionalProperties: true   #Indicates free-form object
+          schema:
+            type: string
+
+
       responses:
         '201':
           description: Created
@@ -1191,8 +1192,9 @@ will update.
         - name: "file"  
           in: "formData"
           required: true
-          description: uploaded file
-          $ref: '#/definitions/fileObject'
+          description: uploaded file (string with a json in form of the commented definition)
+          type: string
+          #$ref: '#/definitions/fileObject'
       responses:
         200:
           description: "Module access trigger"
@@ -1463,7 +1465,7 @@ will update.
           description: "Error accessing module"
 
           
-  /spcl/ident/mgr/return:
+  /spcl/ident/mgr/return/{moduleID}:
     get:
       tags:
         - APIGatewaySP
@@ -2048,8 +2050,9 @@ will update.
         - name: "file"  
           in: "formData"
           required: true
-          description: the JSON object containing the uploaded file
-          $ref: '#/definitions/fileObject'
+          description: the JSON object containing the uploaded file (a string with the definition in the comment)
+          type: string
+          #$ref: '#/definitions/fileObject'
         - name: "sessionToken"
           in: "query"
           description: if the module requires some kind of authorisation and officer identification
@@ -3495,6 +3498,7 @@ definitions:
  
     
     
+    
 ####### IDLinking #######
 
   fileObject:
@@ -3609,18 +3613,21 @@ definitions:
 
 
   statusResponse:
-    primaryCode:
-      description: generic status description object
-      type: string
-      enum:
-        - OK
-        - ERROR
-    secondaryCode:
-      type: string
-      description: Optional field for module specific status codes
-    message:
-      type: string
-      description: Any message that might be of use to understand the status
+    description: Generic Status response
+    type: object
+    properties:
+        primaryCode:
+          description: generic status description object
+          type: string
+          enum:
+            - OK
+            - ERROR
+        secondaryCode:
+          type: string
+          description: Optional field for module specific status codes
+        message:
+          type: string
+          description: Any message that might be of use to understand the status
 
 
 
