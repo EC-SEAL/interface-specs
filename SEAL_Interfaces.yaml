@@ -3061,6 +3061,20 @@ definitions:
     title: View
 
 
+  requestParameters:
+    type: object
+    properties:
+      data:
+        type: string
+      id:
+        type: string
+      sessionId:
+        type: string
+      type:
+        type: string
+    title: requestParameters
+
+
 ####### ConfigManager ########
 
   #Descriptor Object of a Microservice
