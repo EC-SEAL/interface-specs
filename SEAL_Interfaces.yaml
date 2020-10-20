@@ -269,167 +269,167 @@ paths:
       deprecated: false
       
       
-  /sm/store/start:
-    get:
-      tags:
-        - SessionManager
-      summary: Will create an empty dataStore in session, overwriting any pre-existing one.
-      parameters:
-        - name: sessionID
-          in: query
-          description: session identifier
-          required: true
-          type: string
-      responses:
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Error
-      
-      
-      
-      
-  /sm/store/add:
+  ### Data Store Management API in the SM
+  
+  /sm/new/add:
     post:
       tags:
-        - SessionManager
-      summary: Add object to dataStore. If id already exists, will update.
-      operationId: storeAddPOST
+        - new-api-rest
+      summary: >-
+        adds the given data, under the provided session and for the given id.
+        Error if no sesion is found
+      operationId: addUsingPOST
       consumes:
-        - text/plain
-      parameters:
-        - name: sessionID
-          in: query
-          description: session identifier
-          required: true
-          type: string
-        - name: id
-          in: query
-          description: unique and persistent identifier for the object beinjg written, for a given source, issuer and subject
-          required: true
-          type: string
-        - name: type
-          in: query
-          description: object class name
-          required: true
-          type: string
-        - name: dataObject
-          in: body
-          description: the object to be written on the dataStore (will be put inside a storeEntry). DEfkined as string because swagger does not accept any object here
-          required: true
-          schema:
-            type: string
-
-
-      responses:
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Error
-      
-
-
-      
-  /sm/store/delete:
-    get:
-      tags:
-        - SessionManager
-      summary: Will delete an object from the dataStore in session.
-      parameters:
-        - name: sessionID
-          in: query
-          description: session identifier
-          required: true
-          type: string
-        - name: id
-          in: query
-          description: identifier of the object to delete
-          required: true
-          type: string
-      responses:
-        '201':
-          description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Error
-      
-          
-
-
-      
-  /sm/store/get:
-    get:
-      tags:
-        - SessionManager
-      summary: Will retrieve an object from the dataStore in session.
-      parameters:
-        - name: sessionID
-          in: query
-          description: session identifier
-          required: true
-          type: string
-        - name: id
-          in: query
-          description: identifier of the object to fetch
-          required: true
-          type: string
+        - application/json
       produces:
         - application/json
+      parameters:
+        - in: body
+          name: updateRequest
+          description: updateRequest
+          required: false
+          schema:
+            $ref: '#/definitions/NewUpdateDataRequest'
       responses:
         '200':
-          description: Found
+          description: OK
           schema:
-            $ref: '#/definitions/storeEntry'          
+            $ref: '#/definitions/SessionMngrResponse'
+        '201':
+          description: Created
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
         '404':
-          description: Not found
-      
-          
-
-
-  /sm/store/search:
+          description: Not Found
+      deprecated: false
+  /sm/new/delete:
+    post:
+      tags:
+        - new-api-rest
+      summary: deletes the given object (based on id) from the session
+      operationId: deleteUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: deleteRequest
+          description: deleteRequest
+          required: false
+          schema:
+            $ref: '#/definitions/NewUpdateDataRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sm/new/get:
     get:
       tags:
-        - SessionManager
-      summary: Will retrieve all objects of a type from the dataStore in session (or all objects if type is not specified).
+        - new-api-rest
+      summary: >-
+        returns in the extraData  the object (JSON strigified) for the given
+        session id and object id, or if not object id, the array of all objects
+        for the given sessionID
+      operationId: getSessionDataUsingGET_1
+      produces:
+        - application/json
       parameters:
-        - name: sessionID
+        - name: id
           in: query
-          description: session identifier
-          required: true
-          type: string
-        - name: type
-          in: query
-          description: object class name
+          description: id
           required: false
           type: string
-      produces:
-        - application/json
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
       responses:
         '200':
-          description: Found
+          description: OK
           schema:
-            $ref: '#/definitions/storeEntryList'          
+            $ref: '#/definitions/SessionMngrResponse'
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
         '404':
-          description: Not found
+          description: Not Found
+      deprecated: false
+  /sm/new/search:
+    get:
+      tags:
+        - new-api-rest
+      summary: >-
+        returns in the extraData field the array of JSON objects matching the
+        given type, or if no type is given all session objects
+      operationId: searchDataUsingGET
+      produces:
+        - application/json
+      parameters:
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+        - name: type
+          in: query
+          description: type
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sm/new/startSession:
+    post:
+      tags:
+        - new-api-rest
+      summary: >-
+        Starts a new session, by setting the code to NEW and the identifier at
+        sessionData.sessionId
+      operationId: startSessionUsingPOST_1
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+
       
 
 
@@ -2974,6 +2974,20 @@ definitions:
       variableName:
         type: string
     title: UpdateDataRequest
+    
+  NewUpdateDataRequest:
+    type: object
+    properties:
+      data:
+        type: string
+      id:
+        type: string
+      sessionId:
+        type: string
+      type:
+        type: string
+    title: NewUpdateDataRequest
+    
 
   View:
     type: object
