@@ -197,7 +197,8 @@ paths:
           description: Not Found
       deprecated: false
 
-
+  # This call will now be duplicated. This one is kept for backwards compatibility, but given the issues found with data field exceeding the url length, 
+  #  we add an equivalent one but that passes the payload as a json body on POST
   /sm/generateToken:
     get:
       tags:
@@ -267,7 +268,57 @@ paths:
         '404':
           description: Not Found
       deprecated: false
-      
+
+  # The new call:
+  
+  /sm/generateTokenWithPayload:
+    post:
+      tags:
+        - SessionManager
+      summary: 'Generates a signed token with the sessionId and the json payload sent in the body. Equivalent to /sm/generateToken but for bigger payloads'
+      operationId: generateTokenWithPayloadUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: requestParameters
+          description: The request params object, with json object, with the 'data' field filled in with the additional data to include on the token
+          required: false
+          schema:
+            $ref: '#/definitions/requestParameters'
+        - name: receiver
+          in: query
+          description: receiver
+          required: true
+          type: string
+        - name: sender
+          in: query
+          description: sender
+          required: true
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SessionMngrResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+
+
+
+
       
   ### Data Store Management API in the SM
   
@@ -336,22 +387,25 @@ paths:
           description: Not Found
       deprecated: false
   /sm/new/get:
-    get:
+    post:
       tags:
         - new-api-rest
       summary: >-
         returns in the extraData  the object (JSON strigified) for the given
         session id and object id, or if not object id, the array of all objects
         for the given sessionID
-      operationId: getSessionDataUsingGET_1
+      operationId: getSessionDataUsingPOST_1
+      consumes:
+        - application/json
       produces:
         - application/json
       parameters:
-        - name: id
-          in: query
-          description: id
+        - in: body
+          name: requestParameters
+          description: The request params object, with json object, with the 'id' filed filled in with the id of the storeEntry to retrieve
           required: false
-          type: string
+          schema:
+            $ref: '#/definitions/requestParameters'
         - name: sessionId
           in: query
           description: sessionId
@@ -370,13 +424,15 @@ paths:
           description: Not Found
       deprecated: false
   /sm/new/search:
-    get:
+    post:
       tags:
         - new-api-rest
       summary: >-
         returns in the extraData field the array of JSON objects matching the
         given type, or if no type is given all session objects
-      operationId: searchDataUsingGET
+      operationId: searchDataUsingPOST
+      consumes:
+        - application/json    
       produces:
         - application/json
       parameters:
@@ -385,11 +441,12 @@ paths:
           description: sessionId
           required: true
           type: string
-        - name: type
-          in: query
-          description: type
+        - in: body
+          name: requestParameters
+          description: The request params object, with json object, with the 'type' field filled in with the type of storeEntry objects to retrieve
           required: false
-          type: string
+          schema:
+            $ref: '#/definitions/requestParameters'
       responses:
         '200':
           description: OK
@@ -411,9 +468,16 @@ paths:
         sessionData.sessionId
       operationId: startSessionUsingPOST_1
       consumes:
-        - application/x-www-form-urlencoded
+        - application/json    
       produces:
         - application/json
+      parameters:
+        - in: body
+          name: requestParameters
+          description: The request params object, with json object, with the 'sessionId' field filled in with the sessionID related to this session dataStore
+          required: false
+          schema:
+            $ref: '#/definitions/requestParameters'
       responses:
         '200':
           description: OK
