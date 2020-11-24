@@ -1767,8 +1767,8 @@ paths:
           description: The security token for ms to ms calls
           required: true
           type: string
-        - name: dataset
-          in: formData
+        - name: "emrtdDataset"
+          in: cookie
           description: The data set to add
           required: true
           type: string #B64  $ref: '#/definitions/dataSet'
