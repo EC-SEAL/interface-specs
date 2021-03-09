@@ -1868,7 +1868,7 @@ paths:
           description: Error receiving identity dataset
           content: {}
   /per/load:
-    post:
+    post: #Support also GET, with same parameters passed as query params
       tags:
       - Persistence
       summary: Setup a persistence mechanism and load a secure storage into session.
@@ -1892,7 +1892,7 @@ paths:
           description: Error loading persistence storage
           content: {}
   /per/store:
-    post:
+    post: #Support also GET, with same parameters passed as query params
       tags:
       - Persistence
       summary: Save session data to the configured persistence mechanism (front channel).
